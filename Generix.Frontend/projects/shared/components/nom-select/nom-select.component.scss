@@ -1,0 +1,92 @@
+.br-nom-select {
+  position: relative;
+}
+
+:host ::ng-deep .ng-select .ng-select-container {
+  line-height: 1.125;
+  min-height: 50px;
+  background-color: rgba(0, 0, 0, 0.04);
+
+  @apply pl-2 pt-1.5 pr-1 pb-0 rounded border border-gray-200;
+}
+
+:host ::ng-deep .ng-select.ng-select.ng-select-focused .ng-select-container {
+  @apply border-blue-500;
+}
+
+:host ::ng-deep .ng-select .ng-select-container .ng-value-container {
+  padding-top: 4px;
+  padding-bottom: 6px;
+}
+
+:host ::ng-deep .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+  margin-top: -0.5em;
+}
+
+:host ::ng-deep {
+  .ng-select .ng-has-value .ng-placeholder,
+  .ng-select.ng-select-opened .ng-placeholder,
+  .ng-select.ng-select-focused .ng-select-container .ng-value-container .ng-placeholder {
+    transform: translateY(-0.58125em) scale(0.75) perspective(100px) translateZ(0.001px);
+  }
+}
+
+:host ::ng-deep .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
+  position: absolute;
+  left: 8px;
+  width: calc(100% - 8px);
+}
+
+:host ::ng-deep .ng-select .ng-select-container:after {
+  display: none;
+}
+
+:host ::ng-deep .ng-select .ng-spinner-loader {
+  align-self: center;
+  margin-bottom: 4px;
+}
+
+:host ::ng-deep .ng-select.ng-select-single .ng-select-container .ng-clear-wrapper {
+  position: absolute;
+  right: 24px;
+  top: 17px;
+}
+
+:host ::ng-deep .ng-select.ng-select-single .ng-select-container .ng-arrow-wrapper {
+  position: absolute;
+  right: 6px;
+  top: 15px;
+}
+
+:host ::ng-deep .ng-select .ng-select-container .ng-value-container .ng-input > input {
+  caret-color: theme('colors.primary');
+}
+
+:host ::ng-deep .mat-error {
+  position: absolute;
+  top: 48px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 75%;
+  white-space: nowrap;
+}
+
+:host :not(.br-nom-select-error-state) ::ng-deep .mat-error {
+  display: none;
+}
+
+:host .br-nom-select-error-state ::ng-deep {
+  .ng-select .ng-select-container {
+    @apply border-red-500;
+  }
+
+  .ng-select .ng-select-container .ng-value-container .ng-placeholder,
+  .ng-select .ng-clear-wrapper,
+  .ng-select .ng-arrow-wrapper .ng-arrow {
+    color: theme('colors.error');
+  }
+
+  .ng-select .ng-select-container .ng-value-container .ng-input > input {
+    caret-color: theme('colors.error');
+  }
+}

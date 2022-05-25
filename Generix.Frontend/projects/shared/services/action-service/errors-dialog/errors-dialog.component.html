@@ -1,0 +1,9 @@
+<mat-dialog-content>
+  <h2>{{ data.header }}</h2>
+  <ul class="list-disc">
+    <li *ngFor="let m of data.errorMessages">{{ m }}</li>
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close cdkFocusInitial>ОК</button>
+</mat-dialog-actions>

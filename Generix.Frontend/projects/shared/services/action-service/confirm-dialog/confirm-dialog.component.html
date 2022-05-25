@@ -1,0 +1,11 @@
+<mat-dialog-content>
+  <p>{{ data.message }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="okResult" [ngClass]="{ hidden: data.okBtnHidden }" cdkFocusInitial>
+    {{ data.okBtnText || 'Да' }}
+  </button>
+  <button mat-button [mat-dialog-close]="cancelResult" [ngClass]="{ hidden: data.cancelBtnHidden }">
+    {{ data.cancelBtnText || 'Не' }}
+  </button>
+</mat-dialog-actions>

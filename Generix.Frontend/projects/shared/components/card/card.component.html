@@ -1,0 +1,13 @@
+<div class="p-2.5 sm:p-4 sm:m-4 bg-white sm:shadow sm:border-t sm:rounded">
+  <div class="sticky top-14 flex items-center justify-between border-b border-blue-300 py-2 -mt-2 mb-4 bg-white z-10">
+    <div class="flex-1 text-xl text-gigas font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+      <ng-content select="[card-title]"></ng-content>
+    </div>
+    <div class="br-card-buttons">
+      <ng-content select="[card-buttons]"></ng-content>
+    </div>
+  </div>
+  <div>
+    <ng-content select="[card-body]"></ng-content>
+  </div>
+</div>

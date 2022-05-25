@@ -1,0 +1,69 @@
+<br-card>
+  <ng-container card-title>Посредници</ng-container>
+  <ng-container card-buttons>
+    <a [routerLink]="['./', 'new']" mat-raised-button color="primary" aria-label="Нов посредник">
+      <fa-icon [icon]="fadUserPlus" size="lg"></fa-icon>
+      <span>Нов посредник</span>
+    </a>
+  </ng-container>
+  <ng-container card-body>
+    <div [formGroup]="searchForm" novalidate class="sm:grid grid-cols-4 gap-x-4">
+      <p class="col-start-1 col-span-full">Филтър</p>
+      <!-- <sb-nom-select
+          label="Тип идентификатор"
+          formControlName="pinType"
+          [nomService]="pinTypeNomsService"
+        ></sb-nom-select> -->
+      <br-text-field label="име" formControlName="firstName" class=""></br-text-field>
+      <br-text-field label="фамилия" formControlName="lastName" class=""></br-text-field>
+      <br-text-field label="телефон" formControlName="phone" class=""></br-text-field>
+      <br-text-field label="имейл" formControlName="email" class=""></br-text-field>
+      <br-text-field label="град" formControlName="location" class=""></br-text-field>
+      <br-text-field label="адрес" formControlName="address" class="col-span-3"></br-text-field>
+    </div>
+
+    <br-table
+      [dataSource]="dataSource"
+      [displayedColumns]="['action', 'firstName', 'lastName', 'phone', 'email', 'location', 'address']"
+    >
+      <ng-container cdkColumnDef="action">
+        <th cdk-header-cell *cdkHeaderCellDef></th>
+        <td cdk-cell *cdkCellDef="let row" class="br-table-action">
+          <a [routerLink]="['./', row.agentId]" aria-label="Редактирай" class="br-link-btn">
+            <fa-icon [icon]="fasFilePrescription"></fa-icon>
+          </a>
+        </td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="firstName">
+        <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Име</th>
+        <td cdk-cell *cdkCellDef="let row">{{ row.firstName }}</td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="lastName">
+        <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Фамилия</th>
+        <td cdk-cell *cdkCellDef="let row">{{ row.lastName }}</td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="phone">
+        <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Телефон</th>
+        <td cdk-cell *cdkCellDef="let row">{{ row.phone }}</td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="email">
+        <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Имейл</th>
+        <td cdk-cell *cdkCellDef="let row">{{ row.email }}</td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="location">
+        <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Локация</th>
+        <td cdk-cell *cdkCellDef="let row">{{ row.location }}</td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="address">
+        <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Адрес</th>
+        <td cdk-cell *cdkCellDef="let row">{{ row.address }}</td>
+      </ng-container>
+    </br-table>
+  </ng-container>
+</br-card>

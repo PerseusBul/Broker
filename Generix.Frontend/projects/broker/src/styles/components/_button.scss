@@ -1,0 +1,13 @@
+.br-link-btn {
+  @apply text-blue hover:text-blue-900 text-sm font-medium;
+
+  > .ng-fa-icon {
+    @apply text-xl;
+  }
+
+  &.br-link-btn-sm {
+    > .ng-fa-icon {
+      @apply text-base;
+    }
+  }
+}

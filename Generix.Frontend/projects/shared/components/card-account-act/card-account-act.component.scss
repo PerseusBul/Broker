@@ -1,0 +1,39 @@
+.crm-account-frame {
+  @apply sm:w-full md:w-2/5 h-auto mx-auto md:mt-16 border-2 sm:border-gray-400 p-3 sm:p-10 bg-white md:rounded-xl;
+}
+
+.crm-account-frame:hover {
+  @apply sm:w-full md:w-2/5 h-auto mx-auto md:mt-16 border-2 sm:border-gray-300 p-3 sm:p-10 bg-white md:rounded-xl;
+}
+
+.title-account-card {
+  @apply text-3xl mb-8 text-axiom;
+}
+
+.register-link-box {
+  @apply flex flex-1 items-baseline mb-0 mt-8;
+}
+
+.register-link {
+  @apply ml-2 text-lightaxiom;
+}
+
+.register-link-message {
+  @apply text-xs;
+}
+
+.account-message {
+  @apply py-4;
+}
+
+.success-color {
+  @apply bg-success;
+}
+
+.message-icon {
+  @apply self-center;
+}
+
+.message {
+  @apply pr-8 text-center;
+}

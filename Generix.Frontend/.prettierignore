@@ -1,0 +1,7 @@
+dist/
+build/
+node_modules/
+package-lock.json
+package.json
+angular.json
+# projects/

@@ -1,0 +1,36 @@
+<div class="crm-account-frame account-shadow-box">
+  <div class="title-account-card">{{ cardTitle }}</div>
+  <div>
+    <ng-content select="[fields]"></ng-content>
+  </div>
+  <div *ngIf="isLogin" class="mt-4">
+    <a [routerLink]="forgPassRoute">Забравена парола?</a>
+  </div>
+  <div *ngIf="errors" class="text-white text-center mb-3 mt-6 bg-accounterror rounded-sm">
+    <div *ngFor="let error of errors" class="flex">
+      <div class="message-icon">
+        <mat-icon class="mx-3 my-auto">error_outline</mat-icon>
+      </div>
+      <div class="message account-message">
+        {{ error }}
+        <br />
+      </div>
+    </div>
+  </div>
+  <div *ngIf="successMessage" class="flex text-white text-center w-full mb-3 mt-6 success-color rounded-sm">
+    <div class="message-icon">
+      <mat-icon class="mx-3 my-auto">done_outline</mat-icon>
+    </div>
+    <div class="flex-1 message account-message">{{ successMessage }}</div>
+  </div>
+  <div class="btn-account">
+    <button class="btn-account-content" type="submit">
+      <fa-icon *ngIf="loading" [icon]="fasSpinner" [spin]="loading" size="lg"></fa-icon>
+      <span>{{ btnText }}</span>
+    </button>
+  </div>
+  <div *ngIf="isLogin" class="register-link-box">
+    <p class="register-link-message">Нямаш създаден профил?</p>
+    <a class="register-link" [routerLink]="registerRoute">Регистрация</a>
+  </div>
+</div>
