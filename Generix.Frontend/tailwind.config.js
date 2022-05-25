@@ -69,12 +69,9 @@ const palette = {
 };
 
 module.exports = {
-  mode: 'jit',
-  purge: {
-    enabled: true,
-    content: ['./projects/**/*.{html,ts}']
+  content: {
+    files: ['./projects/**/*.{html,ts}']
   },
-  darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
       transparent: 'transparent',
@@ -87,6 +84,8 @@ module.exports = {
       yellow: palette.yellow,
 
       // Main colors
+      axiom: '#003399',
+      lightaxiom: '#0066CC',
       thunder: '#231f20',
       stratos: '#000044',
       'lucky-point': '#191970',
@@ -108,11 +107,8 @@ module.exports = {
       lg: '1200px' // large desktops and up
     },
     fontFamily: {
-      sans: ['Roboto', 'Helvetica\\ Neue', 'sans-serif']
+      sans: ['Fira Sans', 'sans-serif']
     }
-  },
-  variants: {
-    extend: {}
   },
   plugins: [],
   important: '#twroot'

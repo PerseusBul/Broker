@@ -1,0 +1,105 @@
+name: $(Year:yy).$(Month).$(DayOfMonth)$(Rev:.r)
+
+trigger:
+- main
+- releases/*
+
+pr:
+- main
+- releases/*
+
+pool:
+  name: Default
+  #vmImage: 'ubuntu-latest'
+
+variables:
+  major: $(Year)
+  minor: $(Month)
+  release: 0
+  revision: $[counter(variables['release'], 1)]
+  tagVersion: '$(major).$(minor).$(revision).$(Build.BuildId)'
+  tag: '$(Build.BuildId)'
+  doRelease: $[xor(eq(variables['Build.SourceBranch'], 'refs/heads/main'), contains(variables['Build.SourceBranch'], 'refs/heads/releases'))]
+  isRelease: $[contains(variables['Build.SourceBranch'], 'refs/heads/releases')]
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+  isPullRequest: eq(variables['Build.Reason'], 'PullRequest')
+
+stages:
+  - stage: Build
+    displayName: Build
+    #pool:
+    #name: Default
+    #vmImage: 'ubuntu-latest'
+    jobs:
+      - job: Build
+        displayName: Build
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '16.13.2'
+            displayName: 'Install Node.js'
+
+          - script: |
+              npm install -g @angular/cli@13.1.2
+              npm install
+              ng build --prod
+            displayName: 'npm install and build'
+  - stage: Publish
+    displayName: Publish
+    dependsOn: Build
+    #pool:
+    #name: Default
+    #vmImage: 'ubuntu-latest'
+    jobs:
+      - job: Publish
+        condition: and(succeeded(), eq(variables.isMain, 'true'))
+        displayName: Publish
+        steps:
+          - task: Docker@2
+            displayName: Login to Generix Registry
+            inputs:
+              command: login
+              containerRegistry: GenerixDockerRegistry
+          - task: CmdLine@2
+            displayName: Build and Push Multiarch Containers to Generix
+            inputs:
+              script: |
+                docker run --privileged --rm tonistiigi/binfmt --install arm64
+                docker run --privileged --rm tonistiigi/binfmt
+                docker buildx create --use
+                docker buildx build --platform linux/arm64 \
+                -t docker.generix.org/generixui:$(Build.BuildNumber) \
+                -t docker.generix.org/generixui:latest \
+                --push \
+                --file Dockerfile .
+  - stage: PublishToAws
+    condition: and(succeeded(), eq(variables.isRelease, 'true'))
+    displayName: PublishToAws
+    dependsOn: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    jobs:
+      - job: PublisToAws
+        condition: and(succeeded(), eq(variables.isRelease, 'true'))
+        displayName: PublisToAws
+        steps:
+          - task: Docker@2
+            displayName: Build an UI image for AWS
+            inputs:
+              command: 'build'
+              Dockerfile: 'Dockerfile'
+              tags: 'latest'
+              buildContext: $(System.DefaultWorkingDirectory)
+              repository: 797357483776.dkr.ecr.eu-central-1.amazonaws.com/axiom-fe
+              arguments: '--build-arg BUILD_VERSION=$(Build.BuildNumber)'
+
+          - task: ECRPushImage@1
+            displayName: Push an UI image to AWS
+            inputs:
+              awsCredentials: 'AWS-Axiom'
+              regionName: eu-central-1
+              imageSource: 'imagename'
+              sourceImageName: 797357483776.dkr.ecr.eu-central-1.amazonaws.com/axiom-fe
+              sourceImageTag: latest
+              pushTag: latest
+              repositoryName: axiom-fe
