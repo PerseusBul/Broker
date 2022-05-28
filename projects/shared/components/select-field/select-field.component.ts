@@ -7,7 +7,7 @@ import { BaseField } from '../base-field';
 import { INomVO } from '../nom-select/nom-service';
 
 @Component({
-  selector: 'crm-select-field',
+  selector: 'br-select-field',
   templateUrl: './select-field.component.html',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['label', 'placeholder', 'validations'],

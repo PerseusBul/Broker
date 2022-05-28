@@ -11,7 +11,7 @@ import { takeUntil } from 'rxjs/operators';
 import { SaveToken } from '../editor-panel.component';
 
 @Component({
-  selector: 'crm-edit-panel',
+  selector: 'br-edit-panel',
   templateUrl: './edit-panel.component.html'
 })
 export class EditPanelComponent implements OnChanges, OnInit, OnDestroy {

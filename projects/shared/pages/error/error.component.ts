@@ -18,7 +18,7 @@ export class ErrorSkeletonComponent extends SkeletonComponentBase {
 }
 
 @Component({
-  selector: 'crm-error',
+  selector: 'br-error',
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.scss']
 })

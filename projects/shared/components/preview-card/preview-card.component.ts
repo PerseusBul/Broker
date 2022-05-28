@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'crm-preview-card',
+  selector: 'br-preview-card',
   templateUrl: './preview-card.component.html',
   styleUrls: ['./preview-card.component.scss']
 })

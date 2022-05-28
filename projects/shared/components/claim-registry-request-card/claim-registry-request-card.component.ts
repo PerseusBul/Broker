@@ -4,7 +4,7 @@ import { faSpinner as fasSpinner } from '@fortawesome/free-solid-svg-icons/faSpi
 import { ReplaySubject, takeUntil } from 'rxjs';
 
 @Component({
-  selector: 'crm-claim-registry-request-card',
+  selector: 'br-claim-registry-request-card',
   templateUrl: './claim-registry-request-card.component.html',
   styleUrls: ['./claim-registry-request-card.component.scss']
 })

@@ -11,7 +11,7 @@
           <mat-icon aria-hidden="false" aria-label="menu icon" class="scale-150">menu</mat-icon>
         </button>
 
-        <a *ngIf="hasLoggedUser" class="hidden lg:flex items-center px-4 w-56" href="./crm/health-policy">
+        <a *ngIf="hasLoggedUser" class="hidden lg:flex items-center px-4 w-56" href="./broker/health-policy">
           <img
             src="assets/images/axiom-mark-white.svg"
             imgfield="img"
@@ -53,13 +53,13 @@
             </mat-icon>
           </button>
           <mat-menu #accountMenu="matMenu">
-            <button mat-menu-item routerLink="./account/info-update" class="crm-account-nav-tabs">
+            <button mat-menu-item routerLink="./account/info-update" class="br-account-nav-tabs">
               Клиентски профил
             </button>
-            <button mat-menu-item routerLink="./account/reset-password-change" class="crm-account-nav-tabs">
+            <button mat-menu-item routerLink="./account/reset-password-change" class="br-account-nav-tabs">
               Промяна на парола
             </button>
-            <button *ngIf="hasLoggedUser" mat-menu-item class="crm-account-nav-tabs" (click)="logout()">Изход</button>
+            <button *ngIf="hasLoggedUser" mat-menu-item class="br-account-nav-tabs" (click)="logout()">Изход</button>
           </mat-menu>
         </div>
       </div>
@@ -69,8 +69,8 @@
   <div class="mx-auto max-w-screen-max">
     <div
       *ngIf="hasLoggedUser"
-      class="crm-left-side lg:transform-none fixed block pt-14 w-64 lg:w-56 border-r border-gray-300 bg-selago h-full overflow-y-overlay z-30"
-      [class.crm-left-side-open]="leftSideIsOpen"
+      class="br-left-side lg:transform-none fixed block pt-14 w-64 lg:w-56 border-r border-gray-300 bg-selago h-full overflow-y-overlay z-30"
+      [class.br-left-side-open]="leftSideIsOpen"
     >
       <ng-content select="[left-side]"></ng-content>
     </div>
@@ -92,5 +92,5 @@
     class="fixed lg:hidden inset-0 bg-black bg-opacity-60 z-10"
     (click)="hideLeftSide()"
   ></div>
-  <crm-messenger></crm-messenger>
+  <br-messenger></br-messenger>
 </div>

@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { MenuItem } from './menu-item';
 
 @Component({
-  selector: 'crm-app-menu',
+  selector: 'br-app-menu',
   templateUrl: './app-menu.component.html'
 })
 export class AppMenuComponent implements OnChanges, OnDestroy {

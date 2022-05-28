@@ -1,0 +1,93 @@
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <card-account-act
+    cardTitle="Промяна на данни на потребител"
+    btnText="Промени"
+    [errors]="errors"
+    [isLogin]="false"
+    [successMessage]="successMessage"
+    [loading]="loading"
+  >
+    <ng-container fields>
+      <br-text-field
+        label="Име"
+        formControlName="firstName"
+        [validations]="{ pattern: 'Използвате непозволени или повече от 30 символа' }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.FirstName"
+      ></br-text-field>
+
+      <br-text-field
+        label="Презиме"
+        formControlName="middleName"
+        [validations]="{ pattern: 'Използвате непозволени или повече от 30 символа' }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.MiddleName"
+      ></br-text-field>
+
+      <br-text-field
+        label="Фамилия"
+        formControlName="lastName"
+        [validations]="{ pattern: 'Използвате непозволени или повече от 30 символа' }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.FamilyName"
+      ></br-text-field>
+
+      <mat-checkbox
+        class="-mb-4 text-xs sm:text-base"
+        [checked]="hasForeignPhoneNumber"
+        (change)="onPhoneCheckboxChange()"
+      >
+        Нямам номер на български мобилен оператор
+      </mat-checkbox>
+      <br-text-field
+        label="Телефонен номер"
+        formControlName="phoneNumber"
+        [validations]="{
+          pattern: !hasForeignPhoneNumber
+            ? 'Невалиден телефонен номер'
+            : 'Невалиден телефонен номер. Ползвайте само (+) и цифри'
+        }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.PhoneNumber"
+      ></br-text-field>
+
+      <br-select-field
+        class="first-of-three-col"
+        label="Вид идентификатор"
+        formControlName="pinType"
+        [items]="pinTypeItems"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.PinType"
+      ></br-select-field>
+
+      <br-text-field
+        label="Идентификатор"
+        formControlName="pin"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.Pin"
+      ></br-text-field>
+
+      <div>
+        <mat-checkbox
+          class="mb-2.5 text-xs sm:text-base"
+          [checked]="insuranceCardNumberChecked"
+          (change)="onInsuranceCardNumber()"
+        >
+          Имате издадена застрахователна полица?
+        </mat-checkbox>
+        <br-text-field
+          *ngIf="insuranceCardNumberChecked"
+          label="Номер на карта"
+          formControlName="insuranceCardNumber"
+          [validations]="{ pattern: 'Невалиден номер на здравна карта' }"
+          [tooltipVisibility]="'visible'"
+          [tooltipContent]="InfoMessages.InsuranceCardNumber"
+        ></br-text-field>
+      </div>
+
+      <mat-checkbox class="mt-8 text-xs sm:text-base" formControlName="isAdvertisingSubscriptionAccepted">
+        Приемам да получавам съобщения за реклама
+      </mat-checkbox>
+    </ng-container>
+  </card-account-act>
+</form>

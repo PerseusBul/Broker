@@ -20,8 +20,8 @@
   </a>
 </nav>
 
-<div class="block md:hidden crm-form-control-select-wrapper">
-  <select class="crm-form-control" (change)="onChange($event)" [value]="selectedTab">
+<div class="block md:hidden br-form-control-select-wrapper">
+  <select class="br-form-control" (change)="onChange($event)" [value]="selectedTab">
     <option *ngFor="let tab of tabs; index as i" [value]="i.toString()">
       {{ tab.text }}
     </option>

@@ -1,0 +1,29 @@
+.br-table-container {
+  @apply overflow-x-auto border rounded;
+}
+
+.br-table {
+  @apply min-w-full divide-y divide-gray-200;
+
+  thead,
+  tfoot {
+    @apply bg-gray-50;
+
+    th,
+    td {
+      @apply px-2 py-2.5 sm:px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+    }
+  }
+
+  tbody {
+    @apply bg-white divide-y divide-gray-200;
+
+    td {
+      @apply px-2 py-1.5 sm:px-4 sm:py-2.5;
+    }
+
+    td.br-table-action {
+      @apply py-0 w-1 whitespace-nowrap align-middle;
+    }
+  }
+}

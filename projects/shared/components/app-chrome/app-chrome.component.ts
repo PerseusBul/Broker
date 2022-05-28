@@ -9,7 +9,7 @@ import { AuthenticationService } from 'src/app/_services/authentication.service'
 import { MessengerService } from 'src/app/_services/messenger.service';
 
 @Component({
-  selector: 'crm-app-chrome',
+  selector: 'br-app-chrome',
   templateUrl: './app-chrome.component.html',
   styleUrls: ['./app-chrome.component.scss']
 })

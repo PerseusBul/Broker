@@ -7,7 +7,7 @@ import { SkeletonComponentBase } from './skeleton.component';
 import { TestSkeletonTemplateComponent } from './test-skeleton-template.component';
 
 export const TEST_SKELETON_TEMPLATE =
-  '<crm-test-skeleton-template [component]="component" [inputs]="inputs"></crm-test-skeleton-template>';
+  '<br-test-skeleton-template [component]="component" [inputs]="inputs"></br-test-skeleton-template>';
 
 @Component({
   template: TEST_SKELETON_TEMPLATE

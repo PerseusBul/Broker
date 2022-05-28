@@ -16,7 +16,7 @@ export enum ConfirmDialogResult {
 }
 
 @Component({
-  selector: 'crm-confirm-dialog',
+  selector: 'br-confirm-dialog',
   templateUrl: './confirm-dialog.component.html'
 })
 export class ConfirmDialogComponent implements TypedDialog<ConfirmDialogData, ConfirmDialogResult> {

@@ -9,7 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 import { SaveToken } from '../editor-panel.component';
 
 @Component({
-  selector: 'crm-new-panel',
+  selector: 'br-new-panel',
   templateUrl: './new-panel.component.html'
 })
 export class NewPanelComponent implements OnInit, OnDestroy {

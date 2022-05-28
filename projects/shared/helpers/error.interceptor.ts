@@ -1,12 +1,12 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AxiomError } from 'projects/crm-api';
+import { AxiomError } from 'projects/broker-api';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Message } from 'src/app/_models/message';
 import { MessengerService } from 'src/app/_services/messenger.service';
-import { AuthenticationService } from '../../crm/src/app/_services/authentication.service';
+import { AuthenticationService } from '../../broker/src/app/_services/authentication.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {

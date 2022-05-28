@@ -7,7 +7,7 @@ import { TableDataSource } from './table-datasource';
 export const hostMatSortProviderFactory = (host: TableComponent<any>) => host.sort;
 
 @Component({
-  selector: 'crm-table',
+  selector: 'br-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   providers: [{ provide: MatSort, deps: [[new Self(), TableComponent]], useFactory: hostMatSortProviderFactory }]

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'crm-card-section',
+  selector: 'br-card-section',
   templateUrl: './card-section.component.html'
 })
 export class CardSectionComponent {}

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TabItem } from './tab-item';
 
 @Component({
-  selector: 'crm-tabs',
+  selector: 'br-tabs',
   templateUrl: './tabs.component.html'
 })
 export class TabsComponent {

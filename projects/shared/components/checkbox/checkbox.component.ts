@@ -7,7 +7,7 @@ export type ErrorPositionType = 'up' | 'down';
 export type Label = 'before' | 'after';
 
 @Component({
-  selector: 'crm-checkbox',
+  selector: 'br-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
   inputs: ['label', 'placeholder', 'validations', 'readonly'],

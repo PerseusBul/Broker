@@ -5,6 +5,6 @@
     "outDir": "./out-tsc/app",
     "types": ["node"]
   },
-  "files": ["projects/crm/src/main.ts", "projects/crm/src/polyfills.ts", "custom.d.ts"],
+  "files": ["projects/broker/src/main.ts", "projects/broker/src/polyfills.ts", "custom.d.ts"],
   "include": ["src/**/*.d.ts", "src/custom.d.ts"]
 }

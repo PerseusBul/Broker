@@ -3,10 +3,10 @@ import { NgControl } from '@angular/forms';
 import { getFormControl } from 'projects/shared/utils/directive';
 
 @Directive({
-  selector: '[crmNumberPrecision]'
+  selector: '[brokerNumberPrecision]'
 })
 export class NumberPrecisionDirective {
-  @Input('crmNumberPrecision') precision = 0;
+  @Input('brokerNumberPrecision') precision = 0;
 
   constructor(@Optional() @Self() @Inject(NgControl) private ngControl: NgControl) {}
 

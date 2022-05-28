@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'crm-tab-card',
+  selector: 'br-tab-card',
   templateUrl: './tab-card.component.html',
   styleUrls: ['./tab-card.component.scss']
 })

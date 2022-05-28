@@ -6,7 +6,7 @@ import { infoIconDefaultClass, tooltipDefaultCSS } from 'projects/shared/utils/v
 import { BaseField } from '../base-field';
 
 @Component({
-  selector: 'crm-text-field',
+  selector: 'br-text-field',
   templateUrl: './text-field.component.html',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['label', 'placeholder', 'validations', 'readonly'],

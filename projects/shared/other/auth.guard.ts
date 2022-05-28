@@ -36,10 +36,10 @@ export class BlockIfNotAuthenticatedAsAdministrator implements CanLoad {
 }
 
 @Injectable({ providedIn: 'root' })
-export class BlockIfNotAuthenticatedAsAdminRegionalCrm implements CanLoad {
+export class BlockIfNotAuthenticatedAsAdminRegionalBroker implements CanLoad {
   constructor(private authGuardService: AuthService) {}
   canLoad(route: Route, segments: UrlSegment[]) {
-    return this.authGuardService.blockIfNotAuthenticatedAs([SysRole.AdminRegionalCrm]);
+    return this.authGuardService.blockIfNotAuthenticatedAs([SysRole.AdminRegionalBroker]);
   }
 }
 
@@ -55,12 +55,12 @@ export class ForbidIfNotAuthenticatedAsAdmin implements CanActivate {
 }
 
 @Injectable({ providedIn: 'root' })
-export class ForbidIfNotAuthenticatedAsAdminRegionalCrm implements CanActivate, CanActivateChild {
+export class ForbidIfNotAuthenticatedAsAdminRegionalBroker implements CanActivate, CanActivateChild {
   constructor(private authGuardService: AuthService) {}
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.authGuardService.forbidIfNotAuthenticatedAs([SysRole.AdminRegionalCrm]);
+    return this.authGuardService.forbidIfNotAuthenticatedAs([SysRole.AdminRegionalBroker]);
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.authGuardService.forbidIfNotAuthenticatedAs([SysRole.AdminRegionalCrm]);
+    return this.authGuardService.forbidIfNotAuthenticatedAs([SysRole.AdminRegionalBroker]);
   }
 }

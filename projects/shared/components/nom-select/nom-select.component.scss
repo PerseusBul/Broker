@@ -1,4 +1,4 @@
-.crm-nom-select {
+.br-nom-select {
   position: relative;
 }
 
@@ -81,11 +81,11 @@
   white-space: nowrap;
 }
 
-:host :not(.crm-nom-select-error-state) ::ng-deep .mat-error {
+:host :not(.br-nom-select-error-state) ::ng-deep .mat-error {
   display: none;
 }
 
-:host .crm-nom-select-error-state ::ng-deep {
+:host .br-nom-select-error-state ::ng-deep {
   .ng-select .ng-select-container {
     border-bottom-width: 3px;
     @apply border-b-red-500;

@@ -4,7 +4,7 @@ import { Message } from 'src/app/_models/message';
 import { MessengerService } from 'src/app/_services/messenger.service';
 
 @Component({
-  selector: 'crm-messenger',
+  selector: 'br-messenger',
   templateUrl: './messenger.component.html',
   styleUrls: ['./messenger.component.scss']
 })

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MenuItem } from '../menu-item';
 
 @Component({
-  selector: 'crm-inline-menu',
+  selector: 'br-inline-menu',
   templateUrl: './inline-menu.component.html'
 })
 export class InlineMenuComponent {

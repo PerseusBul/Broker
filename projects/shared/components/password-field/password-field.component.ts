@@ -6,7 +6,7 @@ import { infoIconDefaultClass, tooltipDefaultCSS } from 'projects/shared/utils/v
 import { BaseField } from '../base-field';
 
 @Component({
-  selector: 'crm-password-field',
+  selector: 'br-password-field',
   templateUrl: './password-field.component.html',
   styleUrls: ['./password-field.component.scss'],
   inputs: ['label', 'placeholder', 'validations', 'readonly'],

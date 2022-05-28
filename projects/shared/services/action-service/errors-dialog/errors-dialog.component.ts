@@ -8,7 +8,7 @@ export type ErrorsDialogData = {
 };
 
 @Component({
-  selector: 'crm-errors-dialog',
+  selector: 'br-errors-dialog',
   templateUrl: './errors-dialog.component.html'
 })
 export class ErrorsDialogComponent implements TypedDialog<ErrorsDialogData, void> {

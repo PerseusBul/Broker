@@ -6,7 +6,7 @@ import { infoIconDefaultClass, tooltipDefaultCSS } from 'projects/shared/utils/v
 import { BaseField } from '../base-field';
 
 @Component({
-  selector: 'crm-date-field',
+  selector: 'br-date-field',
   templateUrl: './date-field.component.html',
   styleUrls: ['./date-field.component.scss'],
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property

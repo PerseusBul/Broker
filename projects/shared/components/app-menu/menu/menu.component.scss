@@ -1,4 +1,4 @@
-.crm-parent-menu-item > a::after {
+.br-parent-menu-item > a::after {
   content: '';
   display: inline-block;
   position: absolute;
@@ -15,6 +15,6 @@
   right: 10px;
 }
 
-.crm-parent-menu-item.crm-parent-menu-item-open > a::after {
+.br-parent-menu-item.br-parent-menu-item-open > a::after {
   transform: rotate(90deg);
 }

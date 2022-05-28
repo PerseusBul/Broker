@@ -8,7 +8,7 @@ import { BaseField } from '../base-field';
 const TEXTAREA_MAX_SIZE = 2000;
 
 @Component({
-  selector: 'crm-textarea-field',
+  selector: 'br-textarea-field',
   templateUrl: './textarea-field.component.html',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['label', 'placeholder', 'validations', 'readonly'],

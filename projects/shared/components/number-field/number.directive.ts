@@ -13,7 +13,7 @@ export const NUMBER_VALUE_ACCESSOR: any = {
 // The point of it is to allow applying it to <input type="text"> without changing the type to "number"
 
 @Directive({
-  selector: '[crmNumber]',
+  selector: '[brokerNumber]',
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: { '(input)': 'onChange($event.target.value)', '(blur)': 'onTouched()' },
   providers: [NUMBER_VALUE_ACCESSOR]

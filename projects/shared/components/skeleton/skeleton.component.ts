@@ -3,13 +3,13 @@ import { forkJoin, Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 
 export const SIMPLE_SKELETON_TEMPLATE =
-  '<crm-simple-skeleton-template [component]="component" [inputs]="inputs"></crm-simple-skeleton-template>';
+  '<br-simple-skeleton-template [component]="component" [inputs]="inputs"></br-simple-skeleton-template>';
 
 export const SIMPLE_TAB_SKELETON_TEMPLATE =
-  '<crm-simple-tab-skeleton-template [component]="component" [inputs]="inputs"></crm-simple-tab-skeleton-template>';
+  '<br-simple-tab-skeleton-template [component]="component" [inputs]="inputs"></br-simple-tab-skeleton-template>';
 
 export const SIMPLE_DIALOG_SKELETON_TEMPLATE =
-  '<crm-simple-dialog-skeleton-template [component]="component" [inputs]="inputs"></crm-simple-dialog-skeleton-template>';
+  '<br-simple-dialog-skeleton-template [component]="component" [inputs]="inputs"></br-simple-dialog-skeleton-template>';
 
 type DataType<T> = T extends { data: infer TData } ? TData : never;
 

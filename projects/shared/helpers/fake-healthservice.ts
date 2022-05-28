@@ -7,56 +7,62 @@ import {
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tr } from 'date-fns/locale';
-import { GetCardDetailsResponse } from 'projects/crm-api';
-import { ListContractsResponse } from 'projects/crm-api/model/listContractsResponse';
+import { ListContractsResponse } from 'projects/broker-api/model/listContractsResponse';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, dematerialize, materialize, mergeMap } from 'rxjs/operators';
 
 const contracts: ListContractsResponse = {
-  success: true, contracts: [{
-    egn: '0000000000',
-    contractNumber: '11111111111',
-    insuranceCardNumber: '11111111111-1',
-    insuranceNumber: '111111111111',
-    insuranceStatus: 'Активна',
-    insuranceStatusCode: 'A',
-    insuranceType: 'Здравна застраховка',
-    insuranceTypeCode: '201',
-    insuredPersonName: 'Иван Димитров Петров',
-    beginDate: new Date(),
-    endDate: new Date(),
-    packages: [{
-      packageCode: 'P101',
-      blockedSums: 0,
-      claimSum: 0,
-      limitRemainderAgr: 100,
-      packageName: 'Възстановяване на лекарства',
-      payAmount: 100,
-      yearPayoffLimit: 200,
-    }]
-  }, {
-    egn: '0000000000',
-    contractNumber: '11111111111',
-    insuranceCardNumber: '11111111111-1',
-    insuranceNumber: '111111111111',
-    insuranceStatus: 'Неактивна',
-    insuranceStatusCode: 'F',
-    insuranceType: 'Здравна застраховка',
-    insuranceTypeCode: '201',
-    insuredPersonName: 'Иван Димитров Петров',
-    beginDate: new Date(),
-    endDate: new Date(),
-    packages: [{
-      packageCode: 'P101',
-      blockedSums: 0,
-      claimSum: 0,
-      limitRemainderAgr: 100,
-      packageName: 'Възстановяване на лекарства',
-      payAmount: 100,
-      yearPayoffLimit: 200,
-    }]
-  }]
+  success: true,
+  contracts: [
+    {
+      egn: '0000000000',
+      contractNumber: '11111111111',
+      insuranceCardNumber: '11111111111-1',
+      insuranceNumber: '111111111111',
+      insuranceStatus: 'Активна',
+      insuranceStatusCode: 'A',
+      insuranceType: 'Здравна застраховка',
+      insuranceTypeCode: '201',
+      insuredPersonName: 'Иван Димитров Петров',
+      beginDate: new Date(),
+      endDate: new Date(),
+      packages: [
+        {
+          packageCode: 'P101',
+          blockedSums: 0,
+          claimSum: 0,
+          limitRemainderAgr: 100,
+          packageName: 'Възстановяване на лекарства',
+          payAmount: 100,
+          yearPayoffLimit: 200
+        }
+      ]
+    },
+    {
+      egn: '0000000000',
+      contractNumber: '11111111111',
+      insuranceCardNumber: '11111111111-1',
+      insuranceNumber: '111111111111',
+      insuranceStatus: 'Неактивна',
+      insuranceStatusCode: 'F',
+      insuranceType: 'Здравна застраховка',
+      insuranceTypeCode: '201',
+      insuredPersonName: 'Иван Димитров Петров',
+      beginDate: new Date(),
+      endDate: new Date(),
+      packages: [
+        {
+          packageCode: 'P101',
+          blockedSums: 0,
+          claimSum: 0,
+          limitRemainderAgr: 100,
+          packageName: 'Възстановяване на лекарства',
+          payAmount: 100,
+          yearPayoffLimit: 200
+        }
+      ]
+    }
+  ]
 };
 
 // const cardDetails: GetCardDetailsResponse{

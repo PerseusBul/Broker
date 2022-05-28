@@ -29,7 +29,7 @@ const ALL_GROUP_ITEM = {
 const SLICE_SIZE = 20;
 
 @Component({
-  selector: 'crm-nom-select',
+  selector: 'br-nom-select',
   templateUrl: './nom-select.component.html',
   styleUrls: ['./nom-select.component.scss'],
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property

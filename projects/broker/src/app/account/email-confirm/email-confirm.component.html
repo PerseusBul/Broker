@@ -1,0 +1,26 @@
+<div class="br-account-frame sm:w-5/12 sm:mt-28" [ngClass]="success ? 'border-success' : 'border-error'">
+  <div class="title-account-card">
+    <div *ngIf="success" class="flex mb-12">
+      <div class="message-icon">
+        <mat-icon class="mx-3 my-auto fill-success text-success">done_outline</mat-icon>
+      </div>
+      <div>Поздравления!</div>
+    </div>
+    <div *ngIf="!success" class="flex mb-12">
+      <div class="message-icon">
+        <mat-icon class="mx-3 my-auto text-error scale-125 sm:scale-[2] mt-1">error_outline</mat-icon>
+      </div>
+      <div class="text-error">Възникна проблем!</div>
+    </div>
+    <!-- TODO: Link the user when there is error -->
+  </div>
+  <div class="has-error text-error mb-3 sm:text-xl" *ngIf="errors">
+    <div class="help-block" *ngFor="let error of errors">{{ error }}</div>
+  </div>
+  <div *ngIf="success" class="sm:text-xl">
+    Вашият емейл адрес е успешно потвърден.
+    <br />
+    Може да влезете в
+    <b><a routerLink="/broker/account/login/" class="text-lightaxiom">my.Axiom</a></b>
+  </div>
+</div>

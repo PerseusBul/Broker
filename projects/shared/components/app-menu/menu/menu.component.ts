@@ -4,7 +4,7 @@ import { superdocLink } from 'projects/shared/utils/various';
 import { MenuItem } from '../menu-item';
 
 @Component({
-  selector: 'crm-menu',
+  selector: 'br-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })

@@ -14,7 +14,7 @@ const template = `
 `;
 
 @Component({
-  selector: 'crm-simple-dialog-skeleton-template',
+  selector: 'br-simple-dialog-skeleton-template',
   template
 })
 export class SimpleDialogSkeletonTemplateComponent {

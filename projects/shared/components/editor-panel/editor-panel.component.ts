@@ -6,7 +6,7 @@ export interface SaveToken {
 }
 
 @Component({
-  selector: 'crm-editor-panel',
+  selector: 'br-editor-panel',
   templateUrl: './editor-panel.component.html'
 })
 export class EditorPanelComponent implements OnInit, OnChanges {

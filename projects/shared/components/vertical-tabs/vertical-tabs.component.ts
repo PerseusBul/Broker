@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { VerticalTabItem } from './vertical-tab-item';
 
 @Component({
-  selector: 'crm-vertical-tabs',
+  selector: 'br-vertical-tabs',
   templateUrl: './vertical-tabs.component.html'
 })
 export class VerticalTabsComponent implements OnInit, OnDestroy {

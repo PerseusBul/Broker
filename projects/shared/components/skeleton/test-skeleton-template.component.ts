@@ -7,7 +7,7 @@ const template = `
 `;
 
 @Component({
-  selector: 'crm-test-skeleton-template',
+  selector: 'br-test-skeleton-template',
   template
 })
 export class TestSkeletonTemplateComponent {

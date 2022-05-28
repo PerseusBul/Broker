@@ -5,8 +5,8 @@ import jwtDecode, { JwtPayload } from 'jwt-decode';
 
 export enum SysRole {
   Admin = 0,
-  AdminCrm = 5,
-  AdminRegionalCrm = 6,
+  AdminBroker = 5,
+  AdminRegionalBroker = 6,
   Office = 7,
   Agent = 9
 }
@@ -109,11 +109,11 @@ export class AuthService {
 
     switch (this.tokenPayload.selected_role.SysRoleID) {
       case SysRole.Admin:
-      case SysRole.AdminCrm:
+      case SysRole.AdminBroker:
         // TODO get the latest school year for that institution
         // TODO redirect to the info board, or better yet, setup the redirect in the teacher-routing.module.ts
         return this.router.createUrlTree([2020, this.tokenPayload.selected_role.InstitutionID]);
-      case SysRole.AdminRegionalCrm:
+      case SysRole.AdminRegionalBroker:
         return this.router.createUrlTree(['student']);
       default:
         return this.router.createUrlTree(['not-found']);

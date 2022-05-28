@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'crm-card',
+  selector: 'br-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })

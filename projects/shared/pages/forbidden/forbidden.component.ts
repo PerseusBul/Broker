@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
-  selector: 'crm-forbidden',
+  selector: 'br-forbidden',
   templateUrl: './forbidden.component.html'
 })
 export class ForbiddenComponent {

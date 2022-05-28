@@ -65,7 +65,7 @@
         </span>
 
         <fa-icon class="p-1" [icon]="fasMinus"></fa-icon>
-        <crm-inline-menu [menuItems]="menuItem.menuItems"></crm-inline-menu>
+        <br-inline-menu [menuItems]="menuItem.menuItems"></br-inline-menu>
       </ng-template>
 
       <a
@@ -99,8 +99,8 @@
     <!-- menu item with children in normal flow-->
     <li
       *ngIf="menuItem.menuItems && !menuItem.showChildrenInline"
-      class="overflow-hidden crm-parent-menu-item"
-      [class.crm-parent-menu-item-open]="menuItem.isOpen"
+      class="overflow-hidden br-parent-menu-item"
+      [class.br-parent-menu-item-open]="menuItem.isOpen"
     >
       <a
         class="group relative block py-2 pr-1 cursor-pointer"
@@ -122,7 +122,7 @@
         </span>
       </a>
 
-      <crm-menu *ngIf="menuItem.isOpen" [menuItems]="menuItem.menuItems" [level]="level + 1"></crm-menu>
+      <br-menu *ngIf="menuItem.isOpen" [menuItems]="menuItem.menuItems" [level]="level + 1"></br-menu>
     </li>
   </ng-container>
 </ul>

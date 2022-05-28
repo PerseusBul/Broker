@@ -9,7 +9,7 @@ const template = `
 `;
 
 @Component({
-  selector: 'crm-simple-tab-skeleton-template',
+  selector: 'br-simple-tab-skeleton-template',
   template
 })
 export class SimpleTabSkeletonTemplateComponent {
