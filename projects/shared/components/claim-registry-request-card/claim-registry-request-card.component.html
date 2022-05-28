@@ -1,0 +1,13 @@
+<div class="crm-account-frame">
+  <div class="field-box">
+    <ng-content select="[fields]"></ng-content>
+  </div>
+  <div class="btn-axiom-box">
+    <div class="btn-axiom">
+      <button class="btn-axiom-content" type="submit">
+        <fa-icon *ngIf="loading" [icon]="fasSpinner" [spin]="loading" size="lg"></fa-icon>
+        <span>{{ btnText }}</span>
+      </button>
+    </div>
+  </div>
+</div>

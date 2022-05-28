@@ -1,0 +1,96 @@
+<div class="relative">
+  <div class="fixed w-full h-14 text-white bg-axiomblue z-50">
+    <div class="flex items-center justify-between mx-auto h-full max-w-screen-max">
+      <div>
+        <button
+          *ngIf="hasLoggedUser"
+          class="block lg:hidden ml-4 w-24 h-9 outline-none"
+          type="button"
+          (click)="toggleLeftIsSideOpen()"
+        >
+          <mat-icon aria-hidden="false" aria-label="menu icon" class="scale-150">menu</mat-icon>
+        </button>
+
+        <a *ngIf="hasLoggedUser" class="hidden lg:flex items-center px-4 w-56" href="./crm/health-policy">
+          <img
+            src="assets/images/axiom-mark-white.svg"
+            imgfield="img"
+            style="max-width: 160px; width: 160px; min-width: 160px; height: auto; display: block"
+            alt=""
+          />
+        </a>
+        <a *ngIf="!hasLoggedUser" class="lg:flex items-center px-4 w-56">
+          <img src="assets/images/axiom-mark-white.svg" imgfield="img" class="axiom-icon-no-user" alt="" />
+        </a>
+      </div>
+      <div class="flex">
+        <div *ngIf="!hasLoggedUser">
+          <button
+            mat-menu-item
+            routerLink="./account/login"
+            class="flex items-center justify-center text-white text-lg sm:text-xl"
+          >
+            <mat-icon aria-hidden="false" aria-label="assignment ind" class="bg-white scale-[0.8] mr-1">input</mat-icon>
+            <div>Вход</div>
+          </button>
+        </div>
+        <div *ngIf="!hasLoggedUser">
+          <button
+            mat-menu-item
+            routerLink="./account/register"
+            class="flex items-center justify-center text-white text-lg sm:text-xl mx-3"
+          >
+            <mat-icon aria-hidden="false" aria-label="assignment ind" class="bg-white scale-[0.8] mr-1">
+              assignment_ind
+            </mat-icon>
+            <div>Регистрация</div>
+          </button>
+        </div>
+        <div *ngIf="hasLoggedUser" class="mr-3 mb-2">
+          <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+            <mat-icon aria-hidden="false" aria-label="account circle icon" class="scale-[2] mt-4">
+              account_circle
+            </mat-icon>
+          </button>
+          <mat-menu #accountMenu="matMenu">
+            <button mat-menu-item routerLink="./account/info-update" class="crm-account-nav-tabs">
+              Клиентски профил
+            </button>
+            <button mat-menu-item routerLink="./account/reset-password-change" class="crm-account-nav-tabs">
+              Промяна на парола
+            </button>
+            <button *ngIf="hasLoggedUser" mat-menu-item class="crm-account-nav-tabs" (click)="logout()">Изход</button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-screen-max">
+    <div
+      *ngIf="hasLoggedUser"
+      class="crm-left-side lg:transform-none fixed block pt-14 w-64 lg:w-56 border-r border-gray-300 bg-selago h-full overflow-y-overlay z-30"
+      [class.crm-left-side-open]="leftSideIsOpen"
+    >
+      <ng-content select="[left-side]"></ng-content>
+    </div>
+
+    <div class="flex flex-col relative pt-14 min-h-screen">
+      <div class="flex-1 lg:pl-56 w-full">
+        <ng-content select="[main-content]"></ng-content>
+      </div>
+
+      <div class="lg:pl-56 p-2 text-sm text-center">
+        <div>© 2022 Застрахователна компания Аксиом АД.</div>
+        <div class="font-bold">email: office@axiom-jsc.com тел.: 0700 400 99</div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="leftSideIsOpen"
+    class="fixed lg:hidden inset-0 bg-black bg-opacity-60 z-10"
+    (click)="hideLeftSide()"
+  ></div>
+  <crm-messenger></crm-messenger>
+</div>

@@ -1,0 +1,46 @@
+<div class="w-full h-14 text-white bg-error z-50">
+  <div class="flex items-center justify-between mx-auto h-full max-w-screen-max">
+    <div>
+      <button class="block lg:hidden ml-4 w-24 h-9 outline-none" type="button">
+        <mat-icon aria-hidden="false" aria-label="menu icon" class="scale-150">menu</mat-icon>
+      </button>
+
+      <a class="hidden lg:flex items-center px-4 w-56" href="./crm/health-policy">
+        <img
+          src="assets/images/axiom-mark-white.svg"
+          imgfield="img"
+          style="max-width: 160px; width: 160px; min-width: 160px; height: auto; display: block"
+          alt=""
+        />
+      </a>
+    </div>
+    <div class="flex">
+      <div class="mr-3 mb-2">
+        <mat-icon aria-hidden="false" aria-label="account circle icon" class="scale-[2] mt-4">account_circle</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrapper">
+  <div class="message-wrapper">
+    <div class="flex mb-12">
+      <div class="message-icon">
+        <mat-icon class="mx-6 my-auto text-error scale-150 sm:scale-[3] mt-1">error_outline</mat-icon>
+      </div>
+      <div class="text-error text-xl sm:text-4xl">Няма такава страница в приложението!</div>
+    </div>
+    <div class="flex justify-end">
+      <div class="btn-account">
+        <a class="btn-account-content" type="button" href="./crm/health-policy">
+          <span>Начало</span>
+        </a>
+      </div>
+      <div class="btn-account">
+        <a class="btn-account-content" type="button" (click)="goBack()">
+          <span>Назад</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+@import '../card-account-act/card-account-act.component';
+
+// .message-size {
+//   @apply md:w-1/5 md:mx-auto mx-3 md:text-xl;
+// }
+
+.messenger-window {
+  @apply fixed mb-3 min-w-min w-full sm:w-1/5 sm:right-2 bottom-0 overflow-y-auto;
+}
+
+.message-size {
+  @apply mx-auto w-5/6 sm:w-full sm:text-xl z-10 bg-opacity-80;
+}
+
+.on-press:focus {
+  @apply scale-75;
+}

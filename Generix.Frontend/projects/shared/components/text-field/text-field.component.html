@@ -1,5 +1,0 @@
-<mat-form-field class="w-full" appearance="fill">
-  <mat-label *ngIf="label">{{ label }}</mat-label>
-  <input matInput [formControl]="control" [readonly]="readonly" [placeholder]="placeholder" />
-  <mat-error *ngIf="errorMessage && errorStateMatcher.isErrorState(control, form)">{{ errorMessage }}</mat-error>
-</mat-form-field>

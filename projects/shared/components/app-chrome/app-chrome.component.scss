@@ -1,0 +1,20 @@
+.crm-left-side {
+  transition: transform 0.2s ease-in-out;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.crm-left-side.crm-left-side-open {
+  transform: translateZ(0);
+}
+
+.crm-account-nav-tabs {
+  @apply sm:text-xs md:text-sm;
+}
+
+.nav-background {
+  @apply bg-axiom;
+}
+
+.axiom-icon-no-user {
+  @apply w-32 sm:w-40 h-auto block;
+}

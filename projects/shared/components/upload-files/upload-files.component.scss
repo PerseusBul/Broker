@@ -1,0 +1,44 @@
+:host ::ng-deep .crm-card-buttons button + button {
+  @apply ml-3;
+}
+
+.opacity-hidden {
+  @apply opacity-0 relative right-36 w-36 sm:right-52 sm:w-52;
+}
+
+.file-box {
+  @apply max-w-fit leading-6 mb-3;
+}
+
+.files-grid {
+  @apply md:grid grid-cols-2 gap-x-4 sm:ml-8 mb-3;
+}
+
+.file-box-content {
+  @apply flex min-w-fit h-5 text-sm sm:text-base;
+}
+
+.doc-type-title {
+  border-bottom: 1px solid;
+  @apply flex-1 text-xl text-axiom border-b-axiom px-3 mb-3 -mt-4 sm:mt-0 relative pt-2 sm:right-48 sm:-mr-48;
+}
+
+.upload-icon {
+  @apply scale-75 sm:scale-110 mr-0 sm:mb-0 relative top-1;
+}
+
+.upload-icon-active {
+  @apply scale-75 sm:scale-110 mr-0 sm:mb-0 relative top-1 text-white;
+}
+
+.upload-icon:hover {
+  @apply text-black sm:scale-125 mr-0 sm:mb-0 relative top-1;
+}
+
+.error-message-upload {
+  @apply text-error ml-8 text-xs sm:text-sm mb-1;
+}
+
+.z {
+  @apply z-50 relative top-1 sm:top-2 sm:left-1;
+}

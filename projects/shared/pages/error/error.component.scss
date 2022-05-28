@@ -1,0 +1,21 @@
+.page-error-wrapper {
+  @apply w-full h-full;
+}
+
+.message-error-wrapper {
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
+  @apply min-h-fit py-12 w-11/12 sm:w-9/12 mx-auto mt-2 sm:mt-48;
+}
+
+.message-error-icon {
+  @apply self-center;
+}
+
+.error-title {
+  @apply text-error text-4xl sm:text-8xl mb-8 sm:mb-24;
+}
+
+.error-message {
+  @apply text-error ml-8 text-xl sm:text-4xl;
+}

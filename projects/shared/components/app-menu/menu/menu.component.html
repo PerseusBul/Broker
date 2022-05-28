@@ -1,0 +1,128 @@
+<ul>
+  <ng-container *ngFor="let menuItem of menuItems">
+    <!-- selectable menu item -->
+    <li *ngIf="!menuItem.menuItems">
+      <a
+        *ngIf="menuItem.externalLink !== undefined && menuItem.visible"
+        class="group block py-2 cursor-pointer pl-8"
+        [href]="menuItem.externalLink"
+        target="_blank"
+      >
+        <div class="w-44 h-14 -mt-2 -ml-3">
+          <img
+            *ngIf="menuItem.externalLink === superdocLink"
+            alt="Запази час онлайн"
+            src="https://www.healee.com/img/buttons/btn-superdoc-green-large-bg.1558022028001.png"
+            class="w-full h-full"
+          />
+        </div>
+      </a>
+
+      <a
+        *ngIf="menuItem.externalLink === undefined && menuItem.visible"
+        class="group block py-2 cursor-pointer"
+        [class.pr-1]="!menuItem.isSelected"
+        [class.pl-4]="level === 2"
+        [class.pl-8]="menuItem.routeCommands !== undefined"
+        [routerLink]="menuItem.routeCommands"
+        [relativeTo]="menuItem.routeExtras ? menuItem.routeExtras.relativeTo : undefined"
+        [queryParams]="menuItem.routeExtras?.queryParams"
+        [fragment]="menuItem.routeExtras?.fragment"
+        [queryParamsHandling]="menuItem.routeExtras?.queryParamsHandling"
+        [preserveFragment]="menuItem.routeExtras?.preserveFragment || false"
+        [skipLocationChange]="menuItem.routeExtras?.skipLocationChange || false"
+        [replaceUrl]="menuItem.routeExtras?.replaceUrl || false"
+        [state]="menuItem.routeExtras?.state"
+      >
+        <fa-icon
+          *ngIf="menuItem.icon"
+          [icon]="menuItem.icon"
+          class="mr-1"
+          [ngClass]="!menuItem.isSelected ? 'text-gray-500 group-hover:text-lightaxiom' : 'text-axiom'"
+          size="lg"
+        ></fa-icon>
+        <span
+          class="lg:text-sm"
+          [ngClass]="!menuItem.isSelected ? 'group-hover:text-lightaxiom' : 'font-bold text-axiom'"
+        >
+          {{ menuItem.text }}
+        </span>
+      </a>
+    </li>
+
+    <!-- menu item with inline children-->
+    <li *ngIf="menuItem.menuItems && menuItem.showChildrenInline && menuItem.visible">
+      <ng-template #menuItemContents>
+        <fa-icon
+          *ngIf="menuItem.icon"
+          [icon]="menuItem.icon"
+          class="mr-1"
+          [ngClass]="!menuItem.isSelected ? 'text-gray-500 group-hover:text-lightaxiom' : 'text-axiom'"
+          size="lg"
+        ></fa-icon>
+        <span class="lg:text-sm">
+          {{ menuItem.text }}
+        </span>
+
+        <fa-icon class="p-1" [icon]="fasMinus"></fa-icon>
+        <crm-inline-menu [menuItems]="menuItem.menuItems"></crm-inline-menu>
+      </ng-template>
+
+      <a
+        *ngIf="!menuItem.routeCommands"
+        class="group block py-2 pr-1 cursor-pointer"
+        [class.pl-4]="level === 1"
+        [class.pl-8]="level === 2"
+      >
+        <ng-container *ngTemplateOutlet="menuItemContents"></ng-container>
+      </a>
+
+      <a
+        *ngIf="menuItem.routeCommands"
+        class="group block py-2 pr-1 cursor-pointer"
+        [class.pl-4]="level === 1"
+        [class.pl-8]="level === 2"
+        [routerLink]="menuItem.routeCommands"
+        [relativeTo]="menuItem.routeExtras ? menuItem.routeExtras.relativeTo : undefined"
+        [queryParams]="menuItem.routeExtras?.queryParams"
+        [fragment]="menuItem.routeExtras?.fragment"
+        [queryParamsHandling]="menuItem.routeExtras?.queryParamsHandling"
+        [preserveFragment]="menuItem.routeExtras?.preserveFragment || false"
+        [skipLocationChange]="menuItem.routeExtras?.skipLocationChange || false"
+        [replaceUrl]="menuItem.routeExtras?.replaceUrl || false"
+        [state]="menuItem.routeExtras?.state"
+      >
+        <ng-container *ngTemplateOutlet="menuItemContents"></ng-container>
+      </a>
+    </li>
+
+    <!-- menu item with children in normal flow-->
+    <li
+      *ngIf="menuItem.menuItems && !menuItem.showChildrenInline"
+      class="overflow-hidden crm-parent-menu-item"
+      [class.crm-parent-menu-item-open]="menuItem.isOpen"
+    >
+      <a
+        class="group relative block py-2 pr-1 cursor-pointer"
+        [class.pl-4]="level === 2"
+        (click)="toggleOpen(menuItem)"
+      >
+        <fa-icon
+          *ngIf="menuItem.icon"
+          [icon]="menuItem.icon"
+          class="mr-1"
+          [ngClass]="!menuItem.isSelected ? 'text-gray-500 group-hover:text-lightaxiom' : 'text-axiom'"
+          size="lg"
+        ></fa-icon>
+        <span
+          class="lg:text-sm"
+          [ngClass]="!menuItem.isSelected ? 'text-gray-500 group-hover:text-lightaxiom' : 'text-axiom'"
+        >
+          {{ menuItem.text }}
+        </span>
+      </a>
+
+      <crm-menu *ngIf="menuItem.isOpen" [menuItems]="menuItem.menuItems" [level]="level + 1"></crm-menu>
+    </li>
+  </ng-container>
+</ul>

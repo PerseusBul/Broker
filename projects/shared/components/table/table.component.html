@@ -1,0 +1,19 @@
+<div class="crm-table-container relative">
+  <table class="crm-table" cdk-table matSort [class.h-80]="dataSource.pending$ | async" [dataSource]="dataSource">
+    <ng-content></ng-content>
+
+    <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+    <tr cdk-row *cdkRowDef="let row; columns: displayedColumns"></tr>
+    <tr *cdkNoDataRow class="crm-no-data-row">
+      <ng-content *ngIf="!(dataSource.pending$ | async)" select="[no-data-row]"></ng-content>
+    </tr>
+  </table>
+
+  <mat-paginator #paginator [length]="dataSource.length$ | async"></mat-paginator>
+
+  <mat-spinner
+    *ngIf="dataSource.pending$ | async"
+    [diameter]="80"
+    class="absolute top-1/2 left-1/2 -mt-10 -ml-10"
+  ></mat-spinner>
+</div>

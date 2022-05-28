@@ -1,0 +1,8 @@
+@import '../../../products/health-policy/health-policy-board/health-policy-board.component.scss'; // .heath-claims-board-checkbox {
+
+.status-key {
+  @apply lowercase;
+}
+.status {
+  @apply uppercase;
+}

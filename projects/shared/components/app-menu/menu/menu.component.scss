@@ -1,0 +1,20 @@
+.crm-parent-menu-item > a::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+  text-align: center;
+  background: url('/assets/images/chevron-right-solid.svg') 50% no-repeat;
+  margin-top: -7px;
+  opacity: 0.4;
+  transform: translateY(0);
+  transition: transform 0.2s ease-in-out;
+  right: 10px;
+}
+
+.crm-parent-menu-item.crm-parent-menu-item-open > a::after {
+  transform: rotate(90deg);
+}

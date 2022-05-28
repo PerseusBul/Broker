@@ -1,0 +1,46 @@
+@tailwind base;
+
+@layer base {
+  button:focus {
+    @apply outline-none;
+  }
+}
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer utilities {
+  .max-w-screen-max {
+    max-width: 1440px;
+  }
+
+  @layer utilities responsive {
+    //@variants
+    .overflow-overlay {
+      overflow: auto;
+      overflow: overlay;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    .overflow-x-overlay {
+      overflow-x: auto;
+      overflow-x: overlay;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    .overflow-y-overlay {
+      overflow-y: auto;
+      overflow-y: overlay;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    .text-horizontal-tb {
+      writing-mode: horizontal-tb;
+    }
+
+    .text-vertical-rl {
+      writing-mode: vertical-rl;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+.crm-nom-select {
+  position: relative;
+}
+
+.info-icon-visible {
+  margin-right: 8px;
+}
+
+:host ::ng-deep .ng-select .ng-select-container {
+  font-family: Fira Sans, sans-serif;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-bottom-width: 1px;
+
+  @apply pl-2 pt-0 pr-1 pb-0 rounded-sm border-b-gray-500;
+}
+
+:host ::ng-deep .ng-select.ng-select.ng-select-focused .ng-select-container {
+  @apply border-b-axiom border-b-2;
+}
+
+:host ::ng-deep .ng-select .ng-select-container:hover {
+  border-bottom-width: 3px;
+  @apply border-b-axiom;
+}
+
+:host ::ng-deep .ng-select .ng-select-container .ng-value-container {
+  padding-top: 8px;
+  padding-bottom: 2px;
+}
+
+:host ::ng-deep .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+  margin-top: -0.5em;
+  @apply font-sans text-base text-gray-500;
+}
+
+:host ::ng-deep {
+  .ng-select .ng-has-value .ng-placeholder,
+  .ng-select.ng-select-opened .ng-placeholder,
+  .ng-select.ng-select-focused .ng-select-container .ng-value-container .ng-placeholder {
+    transform: translateY(-0.58125em) scale(0.75) perspective(100px) translateZ(0.001px);
+  }
+}
+
+:host ::ng-deep .ng-select.ng-select-single .ng-select-container .ng-value-container .ng-input {
+  position: absolute;
+  left: 8px;
+  width: calc(100% - 8px);
+}
+
+:host ::ng-deep .ng-select .ng-select-container:after {
+  display: none;
+}
+
+:host ::ng-deep .ng-select .ng-spinner-loader {
+  align-self: center;
+  margin-bottom: 4px;
+}
+
+:host ::ng-deep .ng-select.ng-select-single .ng-select-container .ng-clear-wrapper {
+  position: absolute;
+  right: 24px;
+  top: 17px;
+}
+
+:host ::ng-deep .ng-select.ng-select-single .ng-select-container .ng-arrow-wrapper {
+  position: absolute;
+  right: 17px;
+  top: 13px;
+}
+
+:host ::ng-deep .ng-select .ng-select-container .ng-value-container .ng-input > input {
+  caret-color: theme('colors.axiom');
+}
+
+:host ::ng-deep .mat-error {
+  position: absolute;
+  top: 47.5px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 75%;
+  white-space: nowrap;
+}
+
+:host :not(.crm-nom-select-error-state) ::ng-deep .mat-error {
+  display: none;
+}
+
+:host .crm-nom-select-error-state ::ng-deep {
+  .ng-select .ng-select-container {
+    border-bottom-width: 3px;
+    @apply border-b-red-500;
+  }
+
+  .ng-select .ng-select-container .ng-value-container .ng-placeholder,
+  .ng-select .ng-clear-wrapper,
+  .ng-select .ng-arrow-wrapper .ng-arrow {
+    color: theme('colors.error');
+  }
+
+  .ng-select .ng-select-container .ng-value-container .ng-input > input {
+    caret-color: theme('colors.error');
+  }
+}
+
+.info-icon {
+  margin-top: 27px;
+  @apply z-10 -ml-5;
+}

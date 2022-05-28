@@ -1,0 +1,318 @@
+<div class="sm:w-10/12 mx-auto mt-6 mb-3">
+  <crm-form-section-divider mat-dialog-title title="Преглед на приложени документи"></crm-form-section-divider>
+  <div class="docs-box">
+    <div class="flex">
+      <div
+        [ngClass]="
+          existingDocuments.ambulatories && existingDocuments.ambulatories.length > 0
+            ? 'doc-type-header-active'
+            : 'doc-type-header'
+        "
+      >
+        {{ HealthClaimDocumentFileTypeName.AmbulatoryFile }}
+      </div>
+      <div class="sm:w-1/5"></div>
+    </div>
+    <div class="dialog-files-grid w-full">
+      <div *ngFor="let doc of existingDocuments.ambulatories; let index = index">
+        <div class="dialog-file-box">
+          <div class="dialog-file-box-content">
+            <button (click)="onClickDownloadFile(dialogData.utils.claimNumber, doc.documentFileId)">
+              {{ formatFileName(doc.originalFileName ?? '') }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex">
+      <div
+        [ngClass]="
+          existingDocuments.invoices && existingDocuments.invoices.length > 0
+            ? 'doc-type-header-active'
+            : 'doc-type-header'
+        "
+      >
+        {{ HealthClaimDocumentFileTypeName.InvoiceFile }}
+      </div>
+      <div class="sm:w-1/5"></div>
+    </div>
+    <div class="dialog-files-grid w-full">
+      <div *ngFor="let doc of existingDocuments.invoices; let index = index">
+        <div class="dialog-file-box">
+          <div class="dialog-file-box-content">
+            <button (click)="onClickDownloadFile(dialogData.utils.claimNumber, doc.documentFileId)">
+              {{ formatFileName(doc.originalFileName ?? '') }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex">
+      <div
+        [ngClass]="
+          existingDocuments.receipts && existingDocuments.receipts.length > 0
+            ? 'doc-type-header-active'
+            : 'doc-type-header'
+        "
+      >
+        {{ HealthClaimDocumentFileTypeName.ReceiptFile }}
+      </div>
+      <div class="sm:w-1/5"></div>
+    </div>
+    <div class="dialog-files-grid w-full">
+      <div *ngFor="let doc of existingDocuments.receipts; let index = index">
+        <div class="dialog-file-box">
+          <div class="dialog-file-box-content">
+            <button (click)="onClickDownloadFile(dialogData.utils.claimNumber, doc.documentFileId)">
+              {{ formatFileName(doc.originalFileName ?? '') }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex">
+      <div
+        [ngClass]="
+          existingDocuments.labTests && existingDocuments.labTests.length > 0
+            ? 'doc-type-header-active'
+            : 'doc-type-header'
+        "
+      >
+        {{ HealthClaimDocumentFileTypeName.LabTestFile }}
+      </div>
+      <div class="sm:w-1/5"></div>
+    </div>
+    <div class="dialog-files-grid w-full">
+      <div *ngFor="let doc of existingDocuments.labTests; let index = index">
+        <div class="dialog-file-box">
+          <div class="dialog-file-box-content">
+            <button (click)="onClickDownloadFile(dialogData.utils.claimNumber, doc.documentFileId)">
+              {{ formatFileName(doc.originalFileName ?? '') }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex">
+      <div
+        [ngClass]="
+          existingDocuments.cardTherapies && existingDocuments.cardTherapies.length > 0
+            ? 'doc-type-header-active'
+            : 'doc-type-header'
+        "
+      >
+        {{ HealthClaimDocumentFileTypeName.CardTherapyFile }}
+      </div>
+      <div class="sm:w-1/5"></div>
+    </div>
+    <div class="dialog-files-grid w-full">
+      <div *ngFor="let doc of existingDocuments.cardTherapies; let index = index">
+        <div class="dialog-file-box">
+          <div class="dialog-file-box-content">
+            <button (click)="onClickDownloadFile(dialogData.utils.claimNumber, doc.documentFileId)">
+              {{ formatFileName(doc.originalFileName ?? '') }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="mt-8" novalidate>
+    <mat-dialog-actions class="btn-axiom-box">
+      <button *ngIf="edit && dialogData.utils.canUpload" class="btn-axiom btn-axiom-content" type="submit">
+        Добави
+      </button>
+      <button
+        *ngIf="!edit && dialogData.utils.canUpload"
+        class="btn-axiom btn-axiom-content"
+        type="button"
+        (click)="showAddBtn()"
+      >
+        Прикачете документи
+      </button>
+      <button class="btn-axiom btn-axiom-content ml-4" type="button" (click)="close()">Назад</button>
+    </mat-dialog-actions>
+
+    <mat-dialog-content *ngIf="edit">
+      <crm-form-section-divider *ngIf="edit" mat-dialog-title title="Прикачете документи"></crm-form-section-divider>
+
+      <upload-files
+        [title]="HealthClaimDocumentFileTypeName.AmbulatoryFile"
+        [parentFilesSize]="allFilesSize"
+        [maxParentFilesSize]="maxAllFilesSize"
+        [maxFileSize]="getFileMaxSize(HealthClaimDocumentFileType.AmbulatoryFile)"
+        (onFilesSelected)="onFilesSelected($event, HealthClaimDocumentFileType.AmbulatoryFile)"
+        [requiredFileTypes]="RequiredFileTypes"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.AmbulatoryFile"
+      >
+        <ng-container
+          fields
+          *ngIf="dialogData.docsFiles.ambulatoryFiles && dialogData.docsFiles.ambulatoryFiles.length > 0"
+        >
+          <div class="file-section-grid">
+            <crm-text-field
+              class="first-of-three-col"
+              label="Номер на документа"
+              formControlName="ambulatoryDocNumber"
+              [tooltipVisibility]="'visible'"
+              [tooltipContent]="InfoMessages.DocumentNumber"
+            ></crm-text-field>
+
+            <crm-date-field
+              class="second-of-three-col"
+              label="Дата на документа"
+              formControlName="ambulatoryDocDate"
+              [tooltipContent]="InfoMessages.DocumentDate"
+              [maxDate]="maxDate"
+              [minDate]="minDate"
+            ></crm-date-field>
+          </div>
+        </ng-container>
+      </upload-files>
+
+      <upload-files
+        [title]="HealthClaimDocumentFileTypeName.InvoiceFile"
+        [parentFilesSize]="allFilesSize"
+        [maxParentFilesSize]="maxAllFilesSize"
+        [maxFileSize]="getFileMaxSize(HealthClaimDocumentFileType.InvoiceFile)"
+        (onFilesSelected)="onFilesSelected($event, HealthClaimDocumentFileType.InvoiceFile)"
+        [requiredFileTypes]="RequiredFileTypes"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.InvoiceFile"
+      >
+        <ng-container fields *ngIf="dialogData.docsFiles.invoiceFiles && dialogData.docsFiles.invoiceFiles.length > 0">
+          <div class="file-section-grid">
+            <crm-text-field
+              class="first-of-three-col"
+              label="Номер на документа"
+              formControlName="invoiceDocNumber"
+              [tooltipVisibility]="'visible'"
+              [tooltipContent]="InfoMessages.DocumentNumber"
+            ></crm-text-field>
+
+            <crm-date-field
+              class="second-of-three-col"
+              label="Дата на документа"
+              formControlName="invoiceDocDate"
+              [tooltipContent]="InfoMessages.DocumentDate"
+              [maxDate]="maxDate"
+              [minDate]="minDate"
+            ></crm-date-field>
+          </div>
+        </ng-container>
+      </upload-files>
+
+      <upload-files
+        [title]="HealthClaimDocumentFileTypeName.ReceiptFile"
+        [parentFilesSize]="allFilesSize"
+        [maxParentFilesSize]="maxAllFilesSize"
+        [maxFileSize]="getFileMaxSize(HealthClaimDocumentFileType.ReceiptFile)"
+        (onFilesSelected)="onFilesSelected($event, HealthClaimDocumentFileType.ReceiptFile)"
+        [requiredFileTypes]="RequiredFileTypes"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.ReceiptFile"
+      >
+        <ng-container fields *ngIf="dialogData.docsFiles.receiptFiles && dialogData.docsFiles.receiptFiles.length > 0">
+          <div class="file-section-grid">
+            <crm-text-field
+              class="first-of-three-col"
+              label="Номер на документа"
+              formControlName="receiptDocNumber"
+              [tooltipVisibility]="'visible'"
+              [tooltipContent]="InfoMessages.DocumentNumber"
+            ></crm-text-field>
+
+            <crm-date-field
+              class="second-of-three-col"
+              label="Дата на документа"
+              formControlName="receiptDocDate"
+              [tooltipContent]="InfoMessages.DocumentDate"
+              [maxDate]="maxDate"
+              [minDate]="minDate"
+            ></crm-date-field>
+          </div>
+        </ng-container>
+      </upload-files>
+
+      <upload-files
+        [title]="HealthClaimDocumentFileTypeName.LabTestFile"
+        [parentFilesSize]="allFilesSize"
+        [maxParentFilesSize]="maxAllFilesSize"
+        [maxFileSize]="getFileMaxSize(HealthClaimDocumentFileType.LabTestFile)"
+        (onFilesSelected)="onFilesSelected($event, HealthClaimDocumentFileType.LabTestFile)"
+        [requiredFileTypes]="RequiredFileTypes"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.LabTestFile"
+      >
+        <ng-container fields *ngIf="dialogData.docsFiles.labTestFiles && dialogData.docsFiles.labTestFiles.length > 0">
+          <div class="file-section-grid">
+            <crm-text-field
+              class="first-of-three-col"
+              label="Номер на документа"
+              formControlName="labTestDocNumber"
+              [tooltipVisibility]="'visible'"
+              [tooltipContent]="InfoMessages.DocumentNumber"
+            ></crm-text-field>
+
+            <crm-date-field
+              class="second-of-three-col"
+              label="Дата на документа"
+              formControlName="labTestDocDate"
+              [tooltipContent]="InfoMessages.DocumentDate"
+              [maxDate]="maxDate"
+              [minDate]="minDate"
+            ></crm-date-field>
+          </div>
+        </ng-container>
+      </upload-files>
+
+      <upload-files
+        [title]="HealthClaimDocumentFileTypeName.CardTherapyFile"
+        [parentFilesSize]="allFilesSize"
+        [maxParentFilesSize]="maxAllFilesSize"
+        [maxFileSize]="getFileMaxSize(HealthClaimDocumentFileType.CardTherapyFile)"
+        (onFilesSelected)="onFilesSelected($event, HealthClaimDocumentFileType.CardTherapyFile)"
+        [requiredFileTypes]="RequiredFileTypes"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.CardTherapyFile"
+      >
+        <ng-container
+          fields
+          *ngIf="dialogData.docsFiles.cardTherapyFiles && dialogData.docsFiles.cardTherapyFiles.length > 0"
+        >
+          <div class="file-section-grid">
+            <crm-text-field
+              class="first-of-three-col"
+              label="Номер на документа"
+              formControlName="cardTherapyDocNumber"
+              [tooltipVisibility]="'visible'"
+              [tooltipContent]="InfoMessages.DocumentNumber"
+            ></crm-text-field>
+
+            <crm-date-field
+              class="second-of-three-col"
+              label="Дата на документа"
+              formControlName="cardTherapyDocDate"
+              [tooltipContent]="InfoMessages.DocumentDate"
+              [maxDate]="maxDate"
+              [minDate]="minDate"
+            ></crm-date-field>
+          </div>
+        </ng-container>
+      </upload-files>
+
+      <div *ngIf="false">
+        <upload-files
+          title=""
+          (onFilesSelected)="onFilesSelected($event, HealthClaimDocumentFileType.BankFile)"
+          [requiredFileTypes]="RequiredFileTypes"
+        ></upload-files>
+      </div>
+    </mat-dialog-content>
+  </form>
+</div>

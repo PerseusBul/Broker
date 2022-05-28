@@ -1,0 +1,23 @@
+<ng-content *ngIf="!isNew && !localEditable" select="[disabled-mode-buttons]"></ng-content>
+
+<crm-new-panel
+  *ngIf="isNew"
+  [backBtnHidden]="backBtnHidden"
+  [backBtnDisabled]="backBtnDisabled"
+  [backBtnRouteCommands]="backBtnRouteCommands"
+  [backBtnRouteExtras]="backBtnRouteExtras"
+  (save)="save.emit($event)"
+></crm-new-panel>
+
+<crm-edit-panel
+  *ngIf="!isNew"
+  [editBtnHidden]="editBtnHidden"
+  [editBtnDisabled]="editBtnDisabled"
+  [backBtnHidden]="backBtnHidden"
+  [backBtnDisabled]="backBtnDisabled"
+  [backBtnRouteCommands]="backBtnRouteCommands"
+  [backBtnRouteExtras]="backBtnRouteExtras"
+  [editable]="editable"
+  (editableChange)="localEditable = $event; editableChange.emit($event)"
+  (save)="save.emit($event)"
+></crm-edit-panel>

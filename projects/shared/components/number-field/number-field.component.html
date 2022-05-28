@@ -1,0 +1,27 @@
+<mat-form-field class="w-full" appearance="fill">
+  <mat-label>{{ label }}</mat-label>
+  <div class="flex">
+    <input
+      class="flex-1"
+      crmNumber
+      [crmNumberPrecision]="precision"
+      matInput
+      [formControl]="control"
+      [readonly]="readonly"
+      [placeholder]="placeholder"
+    />
+    <fa-icon
+      *ngIf="tooltipVisibility !== 'hidden'"
+      [icon]="fasInfo"
+      [ngClass]="infoIconClass"
+      [matTooltip]="tooltipContent"
+      [matTooltipPosition]="tooltipPosition"
+      [matTooltipClass]="tooltipClass"
+      [matTooltipDisabled]="tooltipDisabled"
+      [matTooltipHideDelay]="tooltipHideDelay"
+      [matTooltipShowDelay]="tooltipShowDelay"
+      [matTooltipTouchGestures]="tooltipTouchGestures"
+    ></fa-icon>
+  </div>
+  <mat-error *ngIf="errorMessage && errorStateMatcher.isErrorState(control, form)">{{ errorMessage }}</mat-error>
+</mat-form-field>

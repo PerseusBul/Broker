@@ -1,0 +1,19 @@
+.crm-test {
+  @apply w-2/5 h-auto ml-auto mr-auto mt-48 border-2 border-gray-400 p-10 bg-blue-50 rounded-xl;
+}
+
+.title-account-card {
+  @apply text-3xl mb-8;
+}
+
+.register-link-box {
+  @apply flex flex-1 items-baseline mb-0 mt-8;
+}
+
+.register-link {
+  @apply ml-2 text-lightaxiom;
+}
+
+.register-link-message {
+  @apply text-xs;
+}

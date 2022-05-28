@@ -1,0 +1,14 @@
+<div class="preview-card-frame preview-card-shadow-box">
+  <div class="preview-card-container">
+    <div class="preview-card-title">
+      <h2>{{ title }}</h2>
+    </div>
+    <div class="preview-card-content-box">
+      <div class="preview-card-content" *ngFor="let keyValuePair of normalizedData">
+        <div class="preview-card-content-key">{{ keyValuePair.key }}:</div>
+        <div class="preview-card-content-value">{{ keyValuePair.val }}</div>
+      </div>
+    </div>
+    <div class="preview-card-footer"></div>
+  </div>
+</div>

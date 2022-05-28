@@ -1,0 +1,151 @@
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <card-account-act
+    cardTitle="Регистрация на потребител"
+    btnText="Регистрирай"
+    [errors]="errors"
+    [isLogin]="false"
+    [loading]="loading"
+  >
+    <ng-container fields>
+      <crm-text-field
+        label="Имейл"
+        formControlName="username"
+        [validations]="{ pattern: 'Невалиден имейл адрес' }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.Email"
+      ></crm-text-field>
+
+      <crm-password-field
+        label="Парола"
+        formControlName="password"
+        [validations]="{
+          pattern: 'Дължината на паролата трябва да бъде минимум 8 знака',
+          hasSymbol: 'Паролата трябва да съдържа поне един символ',
+          hasUppercaseLetter: 'Паролата трябва да съдържа поне една главна буква',
+          hasLowercaseLetter: 'Паролата трябва да съдържа поне една малка буква',
+          hasNumber: 'Паролата трябва да съдържа поне една цифра',
+          hasWhitespace: 'Паролата не трябва да съдържа интервал'
+        }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.NewPassword"
+      ></crm-password-field>
+
+      <crm-password-field
+        label="Повтори парола"
+        formControlName="repeatPassword"
+        [validations]="{ match: 'Парола и Повтори парола не съвпадат!' }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.RepeatPassword"
+      ></crm-password-field>
+
+      <crm-text-field
+        label="Име"
+        formControlName="firstName"
+        [validations]="{ pattern: 'Използвате непозволени или повече от 30 символа' }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.FirstName"
+      ></crm-text-field>
+
+      <crm-text-field
+        label="Презиме"
+        formControlName="middleName"
+        [validations]="{ pattern: 'Използвате непозволени или повече от 30 символа' }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.MiddleName"
+      ></crm-text-field>
+
+      <crm-text-field
+        label="Фамилия"
+        formControlName="lastName"
+        [validations]="{ pattern: 'Използвате непозволени или повече от 30 символа' }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.FamilyName"
+      ></crm-text-field>
+
+      <mat-checkbox class="text-xs sm:text-base -mb-4" (click)="onPhoneCheckboxChange()">
+        <p>Нямам номер на български мобилен оператор</p>
+      </mat-checkbox>
+      <crm-text-field
+        label="Телефонен номер"
+        formControlName="phoneNumber"
+        [validations]="{
+          pattern: !hasForeignPhoneNumber
+            ? 'Невалиден телефонен номер'
+            : 'Невалиден телефонен номер. Ползвайте само (+) и цифри'
+        }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.PhoneNumber"
+      ></crm-text-field>
+
+      <crm-select-field
+        label="Вид идентификатор"
+        formControlName="pinType"
+        [items]="pinTypeItems"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.PinType"
+      ></crm-select-field>
+
+      <crm-text-field
+        label="Идентификатор"
+        formControlName="pin"
+        [validations]="{ egn: 'Невалидно ЕГН' }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.Pin"
+      ></crm-text-field>
+
+      <mat-checkbox class="mb-2.5 text-xs sm:text-base" (click)="onInsuranceCardNumber()">
+        <p>Имате издадена здравна застрахователна полица?</p>
+      </mat-checkbox>
+      <crm-text-field
+        *ngIf="insuranceCardNumberChecked"
+        label="Номер на здравна карта"
+        formControlName="insuranceCardNumber"
+        [validations]="{ pattern: 'Невалиден номер на здравна карта' }"
+        [tooltipVisibility]="'visible'"
+        [tooltipContent]="InfoMessages.InsuranceCardNumber"
+      ></crm-text-field>
+
+      <crm-checkbox class="mt-8 text-xs sm:text-base mb-2" formControlName="isDataPrivacyAccepted" label="*">
+        <ng-container message>
+          Съгласен съм с обработването на предоставените лични данни съгласно приложената
+          <span>
+            <a
+              class="checkbox-link"
+              href="https://drive.google.com/file/d/1k4U_v-_gHzNL9nO0IAGUBRc365TgJkZi/view?usp=sharing"
+              target="_blank"
+              rel="noopener"
+            >
+              декларация
+            </a>
+          </span>
+        </ng-container>
+      </crm-checkbox>
+
+      <crm-checkbox class="text-xs sm:text-base mb-2" formControlName="areGeneralTermsAccepted" label="*">
+        <ng-container message>
+          Съгласен съм с обработването на предоставените лични данни съгласно
+          <span>
+            <a
+              class="checkbox-link"
+              href="https://drive.google.com/file/d/1JYnhiuGTfstT8p_rjLIgOxXp9UHztIqC/view"
+              target="_blank"
+              rel="noopener"
+            >
+              Уведомление за поверителност
+            </a>
+          </span>
+        </ng-container>
+      </crm-checkbox>
+
+      <crm-checkbox
+        class="text-xs sm:text-base mb-2"
+        formControlName="isAdvertisingSubscriptionAccepted"
+        label="Съгласен съм да получавам информация относно застрахователни продукти"
+      ></crm-checkbox>
+
+      <div class="mt-5 -ml-1">
+        <re-captcha formControlName="captcha"></re-captcha>
+      </div>
+    </ng-container>
+  </card-account-act>
+</form>

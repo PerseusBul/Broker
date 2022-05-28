@@ -1,0 +1,23 @@
+@import 'styles/tailwindcss';
+@import 'styles/google-fonts';
+@import 'styles/fira-sans-fonts';
+@import 'styles/base';
+@import 'styles/ng-select-vars';
+@import 'styles/material/_material';
+@import 'styles/material/material-fixes';
+@import 'styles/material/_palette';
+@import '~@ng-select/ng-select/scss/material.theme';
+
+@import 'styles/components/button';
+@import 'styles/components/form-control';
+@import 'styles/components/table';
+@import 'styles/components/shadow-box';
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Fira Sans, sans-serif;
+}

@@ -1,0 +1,15 @@
+.red-top {
+  @apply border-red-700 border-solid border-t-2 pl-2 text-xs;
+}
+
+.red-bottom {
+  @apply border-red-700 border-solid border-b-2 pl-2 text-xs;
+}
+
+:host::ng-deep.mat-checkbox-layout {
+  white-space: normal !important;
+}
+
+:host::ng-deep.mat-checkbox-inner-container {
+  @apply mt-1 mr-1;
+}

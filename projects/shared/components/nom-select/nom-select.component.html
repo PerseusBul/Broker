@@ -1,0 +1,46 @@
+<div
+  class="crm-nom-select"
+  [ngClass]="tooltipVisibility !== 'hidden' ? 'info-icon-visible' : ''"
+  [class.crm-nom-select-error-state]="errorStateMatcher.isErrorState(control, form)"
+>
+  <div class="flex">
+    <ng-select
+      class="flex-1"
+      [items]="items"
+      bindValue="id"
+      bindLabel="name"
+      [multiple]="multiple"
+      [groupBy]="$any(showAllGroup ? allGroup : null)"
+      [groupValue]="$any(showAllGroup ? allGroupValue : null)"
+      [hideSelected]="showAllGroup && items.length > 0"
+      [searchable]="searchable"
+      [closeOnSelect]="true"
+      [selectableGroup]="true"
+      [selectableGroupAsModel]="true"
+      [typeahead]="typeahead$"
+      [loading]="loading"
+      [compareWith]="$any(complexValue ? deepEqual : null)"
+      (open)="onOpened()"
+      (close)="onClosed()"
+      (change)="runOnChange($event)"
+      (scrollToEnd)="onScrollToEnd()"
+      [formControl]="control"
+      [placeholder]="label"
+      [appendTo]="'body'"
+    ></ng-select>
+    <fa-icon
+      *ngIf="tooltipVisibility !== 'hidden'"
+      class="info-icon"
+      [icon]="fasInfo"
+      [ngClass]="infoIconClass"
+      [matTooltip]="tooltipContent"
+      [matTooltipPosition]="tooltipPosition"
+      [matTooltipClass]="tooltipClass"
+      [matTooltipDisabled]="tooltipDisabled"
+      [matTooltipHideDelay]="tooltipHideDelay"
+      [matTooltipShowDelay]="tooltipShowDelay"
+      [matTooltipTouchGestures]="tooltipTouchGestures"
+    ></fa-icon>
+  </div>
+  <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+</div>

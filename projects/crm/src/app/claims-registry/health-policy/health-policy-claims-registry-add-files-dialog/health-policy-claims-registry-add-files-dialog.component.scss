@@ -1,0 +1,31 @@
+@import '../health-policy-claims-registry-new/health-policy-claims-registry-new.component.scss';
+
+.file-section-grid {
+  @apply md:grid grid-cols-9 gap-x-4;
+}
+
+.docs-box {
+  @apply mb-10;
+}
+
+.doc-type-header {
+  border-bottom: 1px solid;
+  @apply flex-1 text-lg sm:text-xl bg-gray-200 pl-2 mb-5 leading-10 sm:leading-10 border-b-gray-500;
+}
+
+.doc-type-header-active {
+  border-bottom: 1px solid;
+  @apply flex-1 text-white text-lg sm:text-xl bg-lightaxiom pl-2 mb-5 leading-10 sm:leading-10 border-b-axiomblue;
+}
+
+.dialog-files-grid {
+  @apply md:grid grid-cols-2 gap-x-4 sm:ml-8 mb-3;
+}
+
+.dialog-file-box {
+  @apply max-w-fit leading-6 mb-3 -mt-2;
+}
+
+.dialog-file-box-content {
+  @apply min-w-fit h-5 text-sm sm:text-lg text-axiom;
+}

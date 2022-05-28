@@ -1,0 +1,53 @@
+<fa-icon *ngIf="" [icon]="fasInfo" [ngClass]="infoIconClass" class="z-50"></fa-icon>
+<div class="sm:flex w-full">
+  <div class="mb-2 flex-nowrap">
+    <label [ngClass]="files.length > 0 ? 'btn-upload-active' : 'btn-upload'" for="#fileUploadControl">
+      <mat-icon [ngClass]="files.length > 0 ? 'upload-icon-active' : 'upload-icon'">attach_file</mat-icon>
+      <span [ngClass]="files.length > 0 ? 'btn-upload-content-active' : 'btn-upload-content'">Избор на файл</span>
+      <fa-icon
+        class="z"
+        *ngIf="tooltipVisibility !== 'hidden'"
+        [icon]="fasInfo"
+        [ngClass]="infoIconClass"
+        [matTooltip]="tooltipContent"
+        [matTooltipPosition]="tooltipPosition"
+        [matTooltipClass]="tooltipClass"
+        [matTooltipDisabled]="tooltipDisabled"
+        [matTooltipHideDelay]="tooltipHideDelay"
+        [matTooltipShowDelay]="tooltipShowDelay"
+        [matTooltipTouchGestures]="tooltipTouchGestures"
+      ></fa-icon>
+    </label>
+    <input
+      #fileUploadControl
+      type="file"
+      multiple
+      class="opacity-hidden btn-axiom"
+      (change)="runOnFilesSelected($event)"
+      [accept]="requiredFileTypes"
+    />
+  </div>
+  <div class="doc-type-title">{{ title }}</div>
+</div>
+<div>
+  <ng-content select="[fields]"></ng-content>
+</div>
+<div class="files-grid w-full">
+  <div *ngFor="let file of files; let index = index">
+    <div class="file-box">
+      <div class="file-box-content">
+        <div>{{ formatFileName(file.fileName) }}</div>
+        <div class="mx-1">/</div>
+        <div class="" align="end">{{ file.fileSize | number: '1.0-1' }} MB</div>
+        <div class="btn-remove">
+          <button (click)="removeFile(file.fileName)"><mat-icon>clear</mat-icon></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="errors" class="w-full">
+  <div *ngFor="let error of errors">
+    <div class="error-message-upload">{{ error }}</div>
+  </div>
+</div>

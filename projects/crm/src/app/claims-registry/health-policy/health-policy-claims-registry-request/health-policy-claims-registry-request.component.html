@@ -1,0 +1,47 @@
+<div class="w-11/12 sm:w-10/12 mx-auto mt-6">
+  <crm-form-section-divider title="Заявка на претенция" class="page-title"></crm-form-section-divider>
+  <div class="fields-box">
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <crm-claim-registry-request-card [btnText]="'Продължи'" [loading]="loading">
+        <ng-container fields>
+          <crm-nom-select
+            label="Заявител *"
+            (onChange)="onApplicantTypeChange($event)"
+            formControlName="applicantTypeId"
+            [nomService]="applicantTypesService"
+            [tooltipVisibility]="'visible'"
+            [tooltipContent]="InfoMessages.ApplicantType"
+          ></crm-nom-select>
+
+          <crm-date-field
+            label="Дата на събитието"
+            formControlName="claimDate"
+            [tooltipContent]="InfoMessages.ClaimEventDate"
+            [maxDate]="maxDate"
+            [minDate]="minDate"
+          ></crm-date-field>
+
+          <crm-form-section-divider
+            title="Данни на застрахованото лице"
+            class="col-span-full"
+          ></crm-form-section-divider>
+          <crm-select-field
+            label="Вид идентификатор"
+            formControlName="pinType"
+            [items]="pinTypeItems"
+            [tooltipVisibility]="'visible'"
+            [tooltipContent]="InfoMessages.InsuredPersonPinType"
+          ></crm-select-field>
+
+          <crm-text-field
+            [label]="isEGN ? 'Идентификатор *' : 'Идентификатор'"
+            formControlName="pin"
+            [validations]="{ egn: 'Невалидно ЕГН' }"
+            [tooltipVisibility]="'visible'"
+            [tooltipContent]="InfoMessages.InsuredPersonPin"
+          ></crm-text-field>
+        </ng-container>
+      </crm-claim-registry-request-card>
+    </form>
+  </div>
+</div>

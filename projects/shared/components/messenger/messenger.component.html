@@ -1,0 +1,25 @@
+<div *ngIf="messages" class="messenger-window">
+  <div *ngFor="let message of messages">
+    <div
+      *ngIf="message.success === false"
+      class="flex text-white text-center mb-3 mt-6 bg-accounterror message-size rounded-sm"
+    >
+      <div class="message-icon">
+        <mat-icon class="mx-3 my-auto">error_outline</mat-icon>
+      </div>
+      <div class="flex-1 message account-message">{{ message.description }}</div>
+      <button type="button" class="message-icon" (click)="closeMessage(message.id)">
+        <mat-icon class="mx-3 my-auto on-press">close</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="message.success" class="flex message-size text-white text-center mb-3 mt-6 success-color rounded-sm">
+      <div class="message-icon">
+        <mat-icon class="mx-3 my-auto">done_outline</mat-icon>
+      </div>
+      <div class="flex-1 message account-message">{{ message.description }}</div>
+      <button *ngIf="!message.duration" type="button" class="message-icon" (click)="closeMessage(message.id)">
+        <mat-icon class="mx-3 my-auto on-press">close</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

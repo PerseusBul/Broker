@@ -1,0 +1,42 @@
+.preview-card-frame {
+  border: 1px solid;
+  @apply w-full bg-gray-100 border-gray-400 rounded-md mt-6;
+}
+
+.preview-card-frame:hover {
+  border: 1px solid;
+  @apply w-full bg-gray-100 border-gray-200 rounded-md;
+}
+
+.preview-card-container {
+  @apply mx-4;
+}
+
+.preview-card-title {
+  @apply border-b-2 border-solid border-gray-500 h-8 sm:h-12 pt-1 sm:pt-4 text-lg sm:text-2xl text-lightaxiom truncate;
+}
+
+.preview-card-content-box {
+  @apply py-1 sm:py-4 ml-3 sm:ml-6;
+}
+
+.preview-card-content {
+  @apply flex flex-col sm:flex-row justify-start leading-6 sm:leading-8 text-base sm:text-lg;
+}
+
+.preview-card-content:hover {
+  border-bottom: 1px solid;
+  @apply flex justify-start border-b-gray-200;
+}
+
+.preview-card-content-key {
+  @apply w-full flex-[2_2_0%] pt-2 sm:pt-0;
+}
+
+.preview-card-content-value {
+  @apply w-full flex-[3_3_0%] text-axiom;
+}
+
+.preview-card-footer {
+  @apply border-t-2 border-solid border-gray-600 h-8 sm:h-12;
+}

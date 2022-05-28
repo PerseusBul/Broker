@@ -1,0 +1,21 @@
+.divider-title {
+  @apply sm:text-2xl text-axiom ml-3;
+}
+
+.form-section-divaider {
+  @apply mb-3 border-t border-axiom;
+}
+
+.form-section-divaider:hover {
+  border-width: 1px;
+}
+
+.page-title {
+  @apply text-xl sm:text-4xl text-axiom ml-3;
+}
+
+.page-title-divider {
+  border-top-width: 3px;
+  border-top-style: solid;
+  @apply mb-3 border-axiom;
+}

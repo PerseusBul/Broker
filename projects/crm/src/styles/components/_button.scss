@@ -1,0 +1,81 @@
+.crm-link-btn {
+  @apply text-blue hover:text-blue-900 text-sm font-medium;
+
+  > .ng-fa-icon {
+    @apply text-xl;
+  }
+
+  &.crm-link-btn-sm {
+    > .ng-fa-icon {
+      @apply text-base;
+    }
+  }
+}
+
+.btn-account {
+  @apply bg-axiom hover:bg-lightaxiom max-w-fit rounded-3xl mx-auto mt-8;
+}
+
+.btn-account-content {
+  @apply text-white sm:text-xl px-6 py-2;
+}
+
+.btn-axiom-box {
+  @apply max-w-fit mx-auto sm:ml-auto sm:mr-4 my-8;
+}
+
+.btn-axiom-package-box {
+  @apply max-w-fit ml-6 my-2;
+}
+
+.btn-axiom-package {
+  @apply bg-axiom sm:bg-lightaxiom hover:bg-lightaxiom sm:hover:bg-axiom rounded-md;
+}
+
+.btn-axiom-package-content {
+  @apply text-white sm:text-xl px-6 py-1;
+}
+
+.btn-axiom-box-buttons {
+  @apply flex;
+}
+
+.btn-axiom {
+  @apply bg-axiom sm:bg-lightaxiom hover:bg-lightaxiom sm:hover:bg-axiom rounded-md;
+}
+
+.btn-axiom-content {
+  @apply text-white sm:text-xl px-6 sm:px-8 py-1 sm:py-2;
+}
+
+.btn-upload {
+  border-bottom: 2px solid grey;
+  @apply bg-gray-200 sm:max-w-fit rounded-sm z-10 px-1 sm:px-3 pt-2 sm:pt-3 pb-1 sm:pb-2;
+}
+
+.btn-upload:hover {
+  border-bottom: 2px solid;
+  @apply bg-gray-200 sm:max-w-fit rounded-sm z-10 px-1 sm:px-3 pt-2 sm:pt-3 pb-1 sm:pb-2 border-b-axiom;
+}
+
+.btn-upload-content {
+  @apply text-sm sm:text-xl;
+}
+
+.btn-upload-active {
+  border-bottom: 2px solid grey;
+  @apply bg-axiomblue sm:max-w-fit rounded-sm z-10 px-1 sm:px-3 pt-2 sm:pt-3 pb-1 sm:pb-2;
+}
+
+.btn-upload-content-active {
+  @apply text-sm sm:text-xl text-white;
+}
+
+.btn-remove {
+  @apply ml-1 scale-75 sm:scale-100;
+}
+
+// TODO: Replace
+.panel-size {
+  @apply w-full lg:w-3/5;
+}

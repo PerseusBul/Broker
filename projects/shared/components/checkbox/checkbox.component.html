@@ -1,0 +1,30 @@
+<div>
+  <mat-error
+    class="red-bottom"
+    *ngIf="errorMessage && errorStateMatcher.isErrorState(control, form) && errorPosition === 'up'"
+  >
+    {{ errorMessage }}
+  </mat-error>
+  <mat-checkbox
+    [class]="class"
+    [formControl]="control"
+    [checked]="checked"
+    (change)="onChange($event)"
+    [color]="color"
+    [value]="value"
+    [disabled]="disabled"
+    [required]="required"
+    [aria-labelledby]="ariaLabelledBy"
+    [labelPosition]="labelPosition"
+    [name]="name"
+  >
+    <span>{{ label }}</span>
+    <ng-content select="[message]"></ng-content>
+  </mat-checkbox>
+  <mat-error
+    class="red-top"
+    *ngIf="errorMessage && errorStateMatcher.isErrorState(control, form) && errorPosition === 'down'"
+  >
+    {{ errorMessage }}
+  </mat-error>
+</div>

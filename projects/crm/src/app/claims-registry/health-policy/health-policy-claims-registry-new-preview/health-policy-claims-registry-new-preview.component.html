@@ -1,0 +1,33 @@
+<div class="w-11/12 sm:w-10/12 mx-auto mt-6">
+  <crm-form-section-divider title="Преглед на заявка на претенция" class="page-title"></crm-form-section-divider>
+
+  <crm-preview-card title="Данни на заявител" [data]="data.claimRegistry.applicant!"></crm-preview-card>
+
+  <crm-preview-card title="Данни на застрахованото лице" [data]="data.claimRegistry.insuredPerson"></crm-preview-card>
+
+  <crm-preview-card title="Данни за събитието" [data]="data.claimRegistry.claim"></crm-preview-card>
+
+  <crm-preview-card
+    title="Данни за застрахователното обещетение"
+    [data]="data.claimRegistry.bankPayment"
+  ></crm-preview-card>
+
+  <crm-preview-card title="Данни за приложени фактури" [data]="data.claimRegistry.invoice"></crm-preview-card>
+
+  <crm-preview-card title="Прикачени документи" [data]="data.claimRegistry.documentFiles"></crm-preview-card>
+
+  <div class="btn-axiom-box">
+    <div class="btn-axiom-box-buttons">
+      <div class="btn-axiom">
+        <button class="btn-axiom-content" type="button" (click)="createClaimRegistryRequest()">
+          <span>Заяви</span>
+        </button>
+      </div>
+      <div class="btn-axiom ml-2 sm:ml-4">
+        <button class="btn-axiom-content" type="button" [routerLink]="['../']">
+          <span>Назад</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+.checkbox-span-pos {
+  @apply text-sm col-start-1 col-span-4;
+}
+
+.invoice-grid {
+  @apply grid grid-cols-11 gap-x-4 mb-2;
+}
+
+.invoice-number-pos {
+  @apply col-span-5;
+}
+
+.invoice-date-pos {
+  @apply col-start-6 col-span-5;
+}
+
+.invoice-delete-icon {
+  @apply sm:scale-125 text-red-500 h-8 w-8 mt-4 sm:ml-3 place-self-center;
+}
+
+.add-button {
+  @apply flex content-center bg-axiom text-white max-w-fit rounded-sm my-2;
+}
+
+.section-grid {
+  @apply sm:grid grid-cols-9 gap-x-4 mb-2;
+}
+
+.file-section-grid {
+  @apply sm:grid grid-cols-9 gap-x-4 -mb-2;
+}
+
+.first-of-three-col {
+  @apply col-start-1 col-end-4;
+}
+
+.second-of-three-col {
+  @apply col-start-4 col-end-7;
+}
+
+.third-of-three-col {
+  @apply col-start-7 col-end-10;
+}
+
+.first-and-second-of-three-col {
+  @apply col-start-1 col-end-7;
+}
+
+.row-full {
+  @apply col-span-full;
+}
