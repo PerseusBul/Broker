@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { AuthenticationService } from './api/authentication.service';
 //import { DataSourcesService } from './api/dataSources.service';
-import { HealthService } from './api/health.service';
 import { UsersService } from './api/users.service';
 import { Configuration } from './configuration';
 
@@ -13,7 +12,6 @@ import { Configuration } from './configuration';
   providers: [
     AuthenticationService,
     // DataSourcesService,
-    HealthService,
     UsersService
   ]
 })
