@@ -16,7 +16,6 @@ import { ErrorInterceptor, JwtInterceptor } from '../../../shared/helpers';
 import { AppInitService, initConfig } from './app-init.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClaimsRegistryPreviewService } from './claims-registry/claims-registry-preview.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -52,9 +51,6 @@ import { ClaimsRegistryPreviewService } from './claims-registry/claims-registry-
     {
       provide: RouteReuseStrategy,
       useClass: ParamsRouteReuseStrategy
-    },
-    {
-      provide: ClaimsRegistryPreviewService
     },
     // {
     //   provide: ErrorHandler,

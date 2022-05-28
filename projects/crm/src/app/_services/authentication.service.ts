@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../../crm/src/environments/environment';
-import { ClaimsRegistryPreviewService } from '../claims-registry/claims-registry-preview.service';
 import { User } from '../_models';
 
 @Injectable({ providedIn: 'root' })
@@ -12,11 +11,7 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User> = new BehaviorSubject<User>(new User());
   public currentUser: Observable<User> = this.currentUserSubject.asObservable();
 
-  constructor(
-    private http: HttpClient,
-    private claimsRegistryPreviewService: ClaimsRegistryPreviewService,
-    private router: Router
-  ) {
+  constructor(private http: HttpClient, private router: Router) {
     const user = localStorage.getItem('currentUser');
 
     if (user) {
@@ -45,7 +40,6 @@ export class AuthenticationService {
     // remove user from local storage to log user out
     if (this.currentUserValue.success) {
       localStorage.removeItem('currentUser');
-      this.claimsRegistryPreviewService.resetContainersData();
       this.currentUserSubject.next(new User());
       this.router.navigate(['./crm/account/login']);
     }
