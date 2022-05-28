@@ -5,7 +5,6 @@ import { faHandHoldingMedical as fasHandHoldingMedical } from '@fortawesome/free
 import { faHospitalUser as fasHospitalUser } from '@fortawesome/free-solid-svg-icons/faHospitalUser';
 import { faNotesMedical as fasNotesMedical } from '@fortawesome/free-solid-svg-icons/faNotesMedical';
 import { MenuItem } from 'projects/shared/components/app-menu/menu-item';
-import { superdocLink } from 'projects/shared/utils/various';
 
 @Component({
   selector: 'br-broker',
@@ -19,34 +18,34 @@ export class BrokerComponent implements OnInit {
   ngOnInit(): void {
     this.menuItems = this.menuItems = [
       {
-        text: 'Медицинска застраховка',
+        text: 'Недоклатено меню',
         icon: fasHandHoldingMedical,
         isOpen: true,
         visible: true,
         menuItems: [
           {
-            text: 'Полици',
+            text: 'Брокери',
             icon: fasFileMedical,
-            routeCommands: ['./health-policy'],
+            routeCommands: ['./broker'],
             visible: true
           },
           {
-            text: 'Претенции',
+            text: 'Имущество',
             icon: fasNotesMedical,
-            routeCommands: ['./claims/health-policy'],
+            routeCommands: ['./broker'],
             visible: true
           },
           {
-            text: 'Заявка на претенция',
+            text: 'Туристическа',
             icon: fasHospitalUser,
-            routeCommands: ['./claims-registry/health-policy/request'],
-            visible: true
-          },
-          {
-            text: '',
-            externalLink: superdocLink,
+            routeCommands: ['./broker'],
             visible: true
           }
+          // {
+          //   text: '',
+          //   externalLink: superdocLink,
+          //   visible: true
+          // }
         ]
       }
     ];

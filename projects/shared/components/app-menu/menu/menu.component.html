@@ -2,7 +2,7 @@
   <ng-container *ngFor="let menuItem of menuItems">
     <!-- selectable menu item -->
     <li *ngIf="!menuItem.menuItems">
-      <a
+      <!-- <a
         *ngIf="menuItem.externalLink !== undefined && menuItem.visible"
         class="group block py-2 cursor-pointer pl-8"
         [href]="menuItem.externalLink"
@@ -16,7 +16,7 @@
             class="w-full h-full"
           />
         </div>
-      </a>
+      </a> -->
 
       <a
         *ngIf="menuItem.externalLink === undefined && menuItem.visible"

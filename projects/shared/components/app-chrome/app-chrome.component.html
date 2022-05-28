@@ -2,16 +2,12 @@
   <div class="fixed w-full h-14 text-white bg-axiomblue z-50">
     <div class="flex items-center justify-between mx-auto h-full max-w-screen-max">
       <div>
-        <button
-          *ngIf="hasLoggedUser"
-          class="block lg:hidden ml-4 w-24 h-9 outline-none"
-          type="button"
-          (click)="toggleLeftIsSideOpen()"
-        >
+        <!-- *ngIf="hasLoggedUser" -->
+        <button class="block lg:hidden ml-4 w-24 h-9 outline-none" type="button" (click)="toggleLeftIsSideOpen()">
           <mat-icon aria-hidden="false" aria-label="menu icon" class="scale-150">menu</mat-icon>
         </button>
-
-        <a *ngIf="hasLoggedUser" class="hidden lg:flex items-center px-4 w-56" href="./broker/health-policy">
+        <!-- <a *ngIf="hasLoggedUser" class="hidden lg:flex items-center px-4 w-56" href="./broker"> -->
+        <a class="hidden lg:flex items-center px-4 w-56" href="./broker">
           <img
             src="assets/images/axiom-mark-white.svg"
             imgfield="img"
@@ -19,12 +15,12 @@
             alt=""
           />
         </a>
-        <a *ngIf="!hasLoggedUser" class="lg:flex items-center px-4 w-56">
+        <!-- <a *ngIf="!hasLoggedUser" class="lg:flex items-center px-4 w-56">
           <img src="assets/images/axiom-mark-white.svg" imgfield="img" class="axiom-icon-no-user" alt="" />
-        </a>
+        </a> -->
       </div>
       <div class="flex">
-        <div *ngIf="!hasLoggedUser">
+        <!-- <div *ngIf="!hasLoggedUser">
           <button
             mat-menu-item
             routerLink="./account/login"
@@ -33,8 +29,8 @@
             <mat-icon aria-hidden="false" aria-label="assignment ind" class="bg-white scale-[0.8] mr-1">input</mat-icon>
             <div>Вход</div>
           </button>
-        </div>
-        <div *ngIf="!hasLoggedUser">
+        </div> -->
+        <!-- <div *ngIf="!hasLoggedUser">
           <button
             mat-menu-item
             routerLink="./account/register"
@@ -45,8 +41,9 @@
             </mat-icon>
             <div>Регистрация</div>
           </button>
-        </div>
-        <div *ngIf="hasLoggedUser" class="mr-3 mb-2">
+        </div> -->
+        <!-- <div *ngIf="hasLoggedUser" class="mr-3 mb-2"> -->
+        <div class="mr-3 mb-2">
           <button mat-icon-button [matMenuTriggerFor]="accountMenu">
             <mat-icon aria-hidden="false" aria-label="account circle icon" class="scale-[2] mt-4">
               account_circle
@@ -67,8 +64,8 @@
   </div>
 
   <div class="mx-auto max-w-screen-max">
+    <!-- *ngIf="hasLoggedUser" -->
     <div
-      *ngIf="hasLoggedUser"
       class="br-left-side lg:transform-none fixed block pt-14 w-64 lg:w-56 border-r border-gray-300 bg-selago h-full overflow-y-overlay z-30"
       [class.br-left-side-open]="leftSideIsOpen"
     >
