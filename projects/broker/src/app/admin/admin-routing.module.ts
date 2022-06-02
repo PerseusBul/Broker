@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BrokerAdminAgentsViewSkeletonComponent } from './broker-admin/broker-admin-agents/broker-admin-agents-view/broker-admin-agents-view.component';
+import { BrokerAdminAgentViewSkeletonComponent } from './broker-admin/broker-admin-agents/broker-admin-agent-view/broker-admin-agent-view.component';
 import { BrokerAdminAgentsComponent } from './broker-admin/broker-admin-agents/broker-admin-agents/broker-admin-agents.component';
 import { BrokerAdminCompanyDataComponent } from './broker-admin/broker-admin-company-data/broker-admin-company-data.component';
-import { BrokerAdminOfficesComponent } from './broker-admin/broker-admin-offices/broker-admin-offices/broker-admin-offices.component';
 import { BrokerAdminComponent } from './broker-admin/broker-admin.component';
 
 const routes: Routes = [
@@ -12,9 +11,8 @@ const routes: Routes = [
     component: BrokerAdminComponent,
     children: [
       { path: 'company-data', component: BrokerAdminCompanyDataComponent },
-      { path: 'offices', component: BrokerAdminOfficesComponent },
-      { path: 'agents/new', component: BrokerAdminAgentsViewSkeletonComponent },
-      { path: 'agents/:id', component: BrokerAdminAgentsViewSkeletonComponent },
+      { path: 'agents/new', component: BrokerAdminAgentViewSkeletonComponent },
+      { path: 'agents/:id', component: BrokerAdminAgentViewSkeletonComponent },
       { path: 'agents', component: BrokerAdminAgentsComponent }
     ]
   }

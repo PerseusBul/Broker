@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./broker-admin-offices.component.scss']
 })
 export class BrokerAdminOfficesComponent implements OnInit {
-  constructor() {}
+
+  constructor() { }
 
   ngOnInit(): void {
-    return;
   }
+
 }

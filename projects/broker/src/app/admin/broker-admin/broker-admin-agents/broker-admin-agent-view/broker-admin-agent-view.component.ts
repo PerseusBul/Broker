@@ -21,28 +21,28 @@ import { AGENTS_DATA, Sample } from 'src/app/admin/stub-data-store';
 @Component({
   template: SIMPLE_SKELETON_TEMPLATE
 })
-export class BrokerAdminAgentsViewSkeletonComponent extends SkeletonComponentBase {
+export class BrokerAdminAgentViewSkeletonComponent extends SkeletonComponentBase {
   constructor(route: ActivatedRoute) {
     super();
 
     const agentId = tryParseInt(route.snapshot.paramMap.get('id'));
 
     if (agentId) {
-      this.resolve(BrokerAdminAgentsViewComponent, {
+      this.resolve(BrokerAdminAgentViewComponent, {
         agent: AGENTS_DATA.map((a) => new Sample(a)).filter((s) => s.id === agentId)[0]
       });
     } else {
-      this.resolve(BrokerAdminAgentsViewComponent, { agent: null });
+      this.resolve(BrokerAdminAgentViewComponent, { agent: null });
     }
   }
 }
 
 @Component({
-  selector: 'br-broker-admin-agents-view',
-  templateUrl: './broker-admin-agents-view.component.html',
-  styleUrls: ['./broker-admin-agents-view.component.scss']
+  selector: 'br-broker-admin-agent-view',
+  templateUrl: './broker-admin-agent-view.component.html',
+  styleUrls: ['./broker-admin-agent-view.component.scss']
 })
-export class BrokerAdminAgentsViewComponent implements OnInit {
+export class BrokerAdminAgentViewComponent implements OnInit {
   @Input() data!: {
     agent: Sample | null;
   };

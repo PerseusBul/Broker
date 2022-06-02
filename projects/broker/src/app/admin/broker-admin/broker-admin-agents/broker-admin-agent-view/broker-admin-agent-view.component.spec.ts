@@ -1,20 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { BrokerAdminAgentsViewComponent } from './broker-admin-agents-view.component';
+import { BrokerAdminAgentViewComponent } from './broker-admin-agent-view.component';
 
 describe('BrokerAdminAgentsViewComponent', () => {
-  let component: BrokerAdminAgentsViewComponent;
-  let fixture: ComponentFixture<BrokerAdminAgentsViewComponent>;
+  let component: BrokerAdminAgentViewComponent;
+  let fixture: ComponentFixture<BrokerAdminAgentViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BrokerAdminAgentsViewComponent ]
-    })
-    .compileComponents();
+      declarations: [BrokerAdminAgentViewComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BrokerAdminAgentsViewComponent);
+    fixture = TestBed.createComponent(BrokerAdminAgentViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
