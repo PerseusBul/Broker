@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 import { CardSectionModule } from './components/card-section/card-section.module';
 import { CardModule } from './components/card/card.module';
 import { CheckboxModule } from './components/checkbox/checkbox.module';
@@ -33,6 +35,8 @@ import { FontAwesomeWithConfigModule } from './font-awesome-with-config.module';
     ReactiveFormsModule,
     SimpleSkeletonTemplateModule,
     TableModule,
+    MatTableModule,
+    MatPaginatorModule,
     TextFieldModule,
     MessengerModule,
     SelectFieldModule,

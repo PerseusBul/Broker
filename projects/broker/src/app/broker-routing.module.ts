@@ -14,11 +14,11 @@ const routes: Routes = [
         path: 'account',
         loadChildren: () => import('./account/account.module').then((m) => m.AccountModule)
       },
-      // {
-      //   path: 'health-policy',
-      //   canActivate: [AuthGuard],
-      //   loadChildren: () => import('./products/health-policy/health-policy.module').then((m) => m.HealthPolicyModule)
-      // },
+      {
+        path: 'admin',
+        //canActivate: [AuthGuard],
+        loadChildren: () => import('./admin/admin.module').then((m) => m.AdminModule)
+      },
       // {
       //   path: 'claims',
       //   loadChildren: () => import('./claims/claims.module').then((m) => m.ClaimsModule)

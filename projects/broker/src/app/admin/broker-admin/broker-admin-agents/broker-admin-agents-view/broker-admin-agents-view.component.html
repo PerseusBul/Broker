@@ -1,0 +1,93 @@
+<!-- <form [formGroup]="form" novalidate>
+    <br-card>
+      <ng-container card-title>
+        {{ data.publication == null ? 'Създаване на публикация' : 'Редакция на публикация' }}
+      </ng-container>
+      <br-editor-panel
+        card-buttons
+        [isNew]="data.publication == null"
+        [editBtnHidden]="data.publication !== null && data.publication.status !== publicationStatus.Draft"
+        [backBtnHidden]="false"
+        (save)="onSave($event)"
+        [(editable)]="editable"
+      >
+        <button
+          disabled-mode-buttons
+          mat-raised-button
+          color=""
+          type="button"
+          (click)="onChangeStatus('Published')"
+          [disabled]="statusChanging"
+          [class.hidden]="data.publication !== null && data.publication.status !== publicationStatus.Draft"
+        >
+          <fa-icon
+            [icon]="statusChanging ? fasSpinnerThird : fasArrowAltCircleUp"
+            [spin]="statusChanging"
+            size="lg"
+          ></fa-icon>
+          <span class="hidden sm:inline">Публикувай</span>
+        </button>
+  
+        <button
+          disabled-mode-buttons
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="onChangeStatus('Draft')"
+          [disabled]="statusChanging"
+          [class.hidden]="data.publication?.status === publicationStatus.Draft"
+        >
+          <fa-icon
+            [icon]="statusChanging ? fasSpinnerThird : fasArrowAltCircleDown"
+            [spin]="statusChanging"
+            size="lg"
+          ></fa-icon>
+          <span class="hidden sm:inline">Върни в чернова</span>
+        </button>
+  
+        <button
+          disabled-mode-buttons
+          mat-raised-button
+          color="accent"
+          type="button"
+          (click)="onChangeStatus('Archived')"
+          [disabled]="statusChanging"
+          [class.hidden]="data.publication !== null && data.publication.status !== publicationStatus.Published"
+        >
+          <fa-icon [icon]="statusChanging ? fasSpinnerThird : fasArchive" [spin]="statusChanging" size="lg"></fa-icon>
+          <span class="hidden sm:inline">Архивирай</span>
+        </button>
+  
+        <button
+          disabled-mode-buttons
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="onRemove()"
+          [disabled]="removing"
+          [class.hidden]="data.publication?.status !== publicationStatus.Draft"
+        >
+          <fa-icon [icon]="removing ? fasSpinnerThird : fasTrashAlt" [spin]="removing" size="lg"></fa-icon>
+          <span class="hidden sm:inline">Премахни</span>
+        </button>
+      </br-editor-panel>
+      <ng-container card-body>
+        <div class="sm:grid grid-cols-3 gap-x-4 mb-2">
+          <br-nom-select
+            label="Тип на публикацията"
+            formControlName="type"
+            [nomService]="publicationTypeNomsService"
+          ></br-nom-select>
+          <br-date-field label="Дата на публикуване" formControlName="date"></br-date-field>
+          <br-nom-select
+            label="Статус"
+            formControlName="status"
+            [nomService]="publicationStatusNomsService"
+          ></br-nom-select>
+          <br-text-field label="Заглавие" formControlName="title" class="col-span-full"></br-text-field>
+          <br-textarea-field label="Описание" formControlName="content" class="col-span-full"></br-textarea-field>
+        </div>
+      </ng-container>
+    </br-card>
+  </form>
+   -->

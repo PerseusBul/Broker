@@ -24,7 +24,7 @@ export class BrokerComponent implements OnInit {
         visible: true,
         menuItems: [
           {
-            text: 'Брокери',
+            text: 'Офис',
             icon: fasFileMedical,
             routeCommands: ['./broker'],
             visible: true
