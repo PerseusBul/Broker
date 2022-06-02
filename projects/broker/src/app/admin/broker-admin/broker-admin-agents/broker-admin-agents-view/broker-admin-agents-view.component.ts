@@ -84,8 +84,6 @@ export class BrokerAdminAgentsViewComponent implements OnInit {
     } else {
       this.editable = true;
     }
-
-    this.form.controls['status'].disable();
   }
 
   onSave(save: SaveToken) {
