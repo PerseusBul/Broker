@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BrokerAdminAgentsViewSkeletonComponent } from './broker-admin/broker-admin-agents/broker-admin-agents-view/broker-admin-agents-view.component';
 import { BrokerAdminAgentsComponent } from './broker-admin/broker-admin-agents/broker-admin-agents/broker-admin-agents.component';
 import { BrokerAdminCompanyDataComponent } from './broker-admin/broker-admin-company-data/broker-admin-company-data.component';
 import { BrokerAdminOfficesComponent } from './broker-admin/broker-admin-offices/broker-admin-offices/broker-admin-offices.component';
@@ -12,6 +13,8 @@ const routes: Routes = [
     children: [
       { path: 'company-data', component: BrokerAdminCompanyDataComponent },
       { path: 'offices', component: BrokerAdminOfficesComponent },
+      { path: 'agents/new', component: BrokerAdminAgentsViewSkeletonComponent },
+      { path: 'agents/:id', component: BrokerAdminAgentsViewSkeletonComponent },
       { path: 'agents', component: BrokerAdminAgentsComponent }
     ]
   }

@@ -5,7 +5,10 @@ import { NomSelectModule } from 'projects/shared/components/nom-select/nom-selec
 import { TabsModule } from 'projects/shared/components/tabs/tabs.module';
 import { ActionServiceModule } from 'projects/shared/services/action-service/action-service.module';
 import { AdminRoutingModule } from './admin-routing.module';
-import { BrokerAdminAgentsViewComponent } from './broker-admin/broker-admin-agents/broker-admin-agents-view/broker-admin-agents-view.component';
+import {
+  BrokerAdminAgentsViewComponent,
+  BrokerAdminAgentsViewSkeletonComponent
+} from './broker-admin/broker-admin-agents/broker-admin-agents-view/broker-admin-agents-view.component';
 import { BrokerAdminAgentsComponent } from './broker-admin/broker-admin-agents/broker-admin-agents/broker-admin-agents.component';
 import { BrokerAdminCompanyDataComponent } from './broker-admin/broker-admin-company-data/broker-admin-company-data.component';
 import { BrokerAdminOfficesViewComponent } from './broker-admin/broker-admin-offices/broker-admin-offices-view/broker-admin-offices-view.component';
@@ -19,7 +22,8 @@ import { BrokerAdminComponent } from './broker-admin/broker-admin.component';
     BrokerAdminAgentsComponent,
     BrokerAdminOfficesComponent,
     BrokerAdminAgentsViewComponent,
-    BrokerAdminOfficesViewComponent
+    BrokerAdminOfficesViewComponent,
+    BrokerAdminAgentsViewSkeletonComponent
   ],
   imports: [CommonModule, AdminRoutingModule, CommonFormUiModule, ActionServiceModule, NomSelectModule, TabsModule]
 })

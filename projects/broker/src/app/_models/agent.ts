@@ -6,7 +6,7 @@ export class Agent {
   }
 
   id: number = -1;
-  position: number = -1;
+  position?: number = -1;
   pin: string = '';
   pinType: PinType = PinType.EGN;
   firstName: string = '';
