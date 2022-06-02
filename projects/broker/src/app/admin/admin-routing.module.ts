@@ -10,6 +10,10 @@ const routes: Routes = [
     path: '',
     component: BrokerAdminComponent,
     children: [
+      {
+        path: 'agent',
+        loadChildren: () => import('./broker-admin/broker-admin-agents/broker-admin-agents.module').then((m) => m.BrokerAdminAgentsModule)
+      },
       { path: 'company-data', component: BrokerAdminCompanyDataComponent },
       { path: 'agents/new', component: BrokerAdminAgentViewSkeletonComponent },
       { path: 'agents/:id', component: BrokerAdminAgentViewSkeletonComponent },
