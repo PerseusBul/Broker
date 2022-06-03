@@ -14,11 +14,6 @@ export class BrokerAdminComponent implements OnInit {
   ngOnInit(): void {
     this.tabs = [
       {
-        text: 'Данни на фирмата',
-        icon: fasFileMedical,
-        routeCommands: ['./company-data']
-      },
-      {
         text: 'Офиси',
         icon: fasFileMedical,
         routeCommands: ['./offices']
@@ -32,6 +27,11 @@ export class BrokerAdminComponent implements OnInit {
         text: 'Агенти',
         icon: fasFileMedical,
         routeCommands: ['./agents']
+      },
+      {
+        text: 'Данни на фирмата',
+        icon: fasFileMedical,
+        routeCommands: ['./company-data']
       }
     ];
   }

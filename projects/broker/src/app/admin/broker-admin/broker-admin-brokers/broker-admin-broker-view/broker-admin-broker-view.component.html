@@ -1,1 +1,23 @@
-<p>broker-admin-broker-view works!</p>
+<form [formGroup]="form" novalidate>
+  <br-card>
+    <ng-container card-title>
+      {{ data.broker == null ? 'Създаване на агент' : 'Редакция на агент' }}
+    </ng-container>
+    <br-editor-panel
+      card-buttons
+      [isNew]="data.broker == null"
+      [editBtnHidden]="data.broker !== null"
+      [backBtnHidden]="false"
+      (save)="onSave($event)"
+      [(editable)]="editable"
+    ></br-editor-panel>
+    <ng-container card-body>
+      <div class="sm:grid grid-cols-3 gap-x-4 mb-2">
+        <br-text-field label="Име" formControlName="firstName"></br-text-field>
+        <br-text-field label="Презиме" formControlName="middleName"></br-text-field>
+        <br-text-field label="Фамилия" formControlName="lastName"></br-text-field>
+        <br-text-field label="Пълно име" formControlName="fullName" class="col-span-full"></br-text-field>
+      </div>
+    </ng-container>
+  </br-card>
+</form>
