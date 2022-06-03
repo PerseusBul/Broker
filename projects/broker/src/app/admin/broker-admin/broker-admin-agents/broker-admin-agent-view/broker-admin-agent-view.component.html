@@ -6,7 +6,7 @@
     <br-editor-panel
       card-buttons
       [isNew]="data.agent == null"
-      [editBtnHidden]="data.agent !== null"
+      [editBtnHidden]="false"
       [backBtnHidden]="false"
       (save)="onSave($event)"
       [(editable)]="editable"
