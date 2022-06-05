@@ -44,7 +44,7 @@ import { TableComponent } from './table.component';
       useFactory: () => {
         const options: MatPaginatorDefaultOptions = {
           pageSize: DEFAULT_PAGE_SIZE,
-          pageSizeOptions: [DEFAULT_PAGE_SIZE, 25, 50, 100]
+          pageSizeOptions: [DEFAULT_PAGE_SIZE, 20, 100]
         };
 
         return options;

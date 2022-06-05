@@ -1,6 +1,56 @@
 <br-card>
   <ng-container card-title>Агенти</ng-container>
   <ng-container card-buttons>
+    <a [routerLink]="['./', 'new']" mat-raised-button color="primary" aria-label="Нова агент">
+      <fa-icon [icon]="fadUserPlus" size="lg"></fa-icon>
+      <span>Нова агент</span>
+    </a>
+  </ng-container>
+  <ng-container card-body>
+    <br-table
+      [dataSource]="dataSource"
+      [displayedColumns]="['action', 'position', 'firstName', 'middleName', 'lastName', 'fullName']"
+    >
+      <ng-container cdkColumnDef="action">
+        <th cdk-header-cell *cdkHeaderCellDef></th>
+        <td cdk-cell *cdkCellDef="let row" class="br-table-action">
+          <a [routerLink]="['./', row.publicationId]" aria-label="Редактирай" class="br-link-btn">
+            <fa-icon [icon]="fasFilePrescription"></fa-icon>
+          </a>
+        </td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="position">
+        <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>No.</th>
+        <td cdk-cell *cdkCellDef="let row">{{ row.position }}</td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="firstName">
+        <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Име</th>
+        <td cdk-cell *cdkCellDef="let row">{{ row.firstName }}</td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="middleName">
+        <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Презиме</th>
+        <td cdk-cell *cdkCellDef="let row">{{ row.middleName }}</td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="lastName">
+        <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Фамилия</th>
+        <td cdk-cell *cdkCellDef="let row">{{ row.lastName }}</td>
+      </ng-container>
+
+      <ng-container cdkColumnDef="fullName">
+        <th cdk-header-cell *cdkHeaderCellDef mat-sort-header>Пълно име</th>
+        <td cdk-cell *cdkCellDef="let row">{{ row.fullName }}</td>
+      </ng-container>
+    </br-table>
+  </ng-container>
+</br-card>
+
+<!-- <br-card>
+  <ng-container card-title>Агенти</ng-container>
+  <ng-container card-buttons>
     <a [routerLink]="['./', 'new']" mat-raised-button color="primary" aria-label="Нов агент">
       <fa-icon [icon]="fadUserPlus" size="lg"></fa-icon>
       <span>Нов агент</span>
@@ -50,8 +100,7 @@
           mat-row
           *matRowDef="let row; columns: ['action', 'position', 'firstName', 'middleName', 'lastName', 'fullName']"
         ></tr>
-        <tr *matNoDataRow class="sb-no-data-row">
-          <!-- *ngIf="!(dataSource.pending$ | async)"  -->
+        <tr *matNoDataRow class="br-no-data-row">
           <ng-content select="[no-data-row]"></ng-content>
         </tr>
       </table>
@@ -59,4 +108,4 @@
       <mat-paginator [pageSizeOptions]="[3]" aria-label="Select page of periodic rows"></mat-paginator>
     </div>
   </ng-container>
-</br-card>
+</br-card> -->

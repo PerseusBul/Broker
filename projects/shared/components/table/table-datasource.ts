@@ -20,18 +20,7 @@ export interface Sort {
 
 export type ElementType<TResult> = TResult extends TableResult<infer T> ? T : never;
 
-export const DEFAULT_PAGE_SIZE = 10;
-
-export function mapTableResult<T, U>(
-  { length, result }: TableResult<T>,
-  callbackfn: (value: T, index: number, array: T[]) => U,
-  thisArg?: any
-): TableResult<U> {
-  return {
-    length,
-    result: result.map(callbackfn, thisArg)
-  };
-}
+export const DEFAULT_PAGE_SIZE = 15;
 
 export class TableDataSource<TResult> extends DataSource<ElementType<TResult>> {
   private page$ = new BehaviorSubject<Page>({ pageIndex: 0, pageSize: DEFAULT_PAGE_SIZE });
@@ -59,7 +48,7 @@ export class TableDataSource<TResult> extends DataSource<ElementType<TResult>> {
 
   connect(): Observable<ElementType<TResult>[]> {
     return combineLatest([this.page$, this.sort$]).pipe(
-      observeOn(asyncScheduler), // we must not change pending$ synchronously on connect() as it trips angular change detection
+      observeOn(asyncScheduler),
       switchMap(([page, sort]) => {
         this.incrementPending();
 
@@ -79,7 +68,7 @@ export class TableDataSource<TResult> extends DataSource<ElementType<TResult>> {
           })
         );
       }),
-      startWith([]) // immediately return an empty
+      startWith([])
     );
   }
 
@@ -115,6 +104,5 @@ export class TableDataSource<TResult> extends DataSource<ElementType<TResult>> {
   }
 
   private incrementPending = () => this._pending$.next(this._pending$.value + 1);
-
-  private decrementPending = () => this._pending$.next(Math.max(0, this._pending$.value - 1)); // TODO fix loading of filtered fetch items
+  private decrementPending = () => this._pending$.next(Math.max(0, this._pending$.value - 1));
 }
