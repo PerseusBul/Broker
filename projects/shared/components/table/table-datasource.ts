@@ -20,7 +20,7 @@ export interface Sort {
 
 export type ElementType<TResult> = TResult extends TableResult<infer T> ? T : never;
 
-export const DEFAULT_PAGE_SIZE = 15;
+export const DEFAULT_PAGE_SIZE = 12;
 
 export class TableDataSource<TResult> extends DataSource<ElementType<TResult>> {
   private page$ = new BehaviorSubject<Page>({ pageIndex: 0, pageSize: DEFAULT_PAGE_SIZE });

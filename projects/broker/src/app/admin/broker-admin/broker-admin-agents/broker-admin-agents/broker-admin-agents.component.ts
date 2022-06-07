@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { MatPaginator } from '@angular/material/paginator';
 import { faFilePrescription as fasFilePrescription } from '@fortawesome/free-solid-svg-icons/faFilePrescription';
 import { faUserPlus as fadUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
 import { TableDataSource } from 'projects/shared/components/table/table-datasource';
@@ -24,7 +23,6 @@ export class BrokerAdminAgentsComponent implements OnInit {
   fasFilePrescription = fasFilePrescription;
   fadUserPlus = fadUserPlus;
   dataSource: TableDataSource<BrokersTableAll>;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   filterInUse: boolean = false;
 
@@ -38,7 +36,7 @@ export class BrokerAdminAgentsComponent implements OnInit {
   constructor(brokerAdminAgentsService: BrokerAdminAgentsService, private fb: FormBuilder) {
     this.dataSource = new TableDataSource<BrokersTableAll>((sortBy, sortDirection, offset, limit) =>
       merge(of(this.searchForm.value), this.searchForm.valueChanges).pipe(
-        debounce(({ firstValue }) => (firstValue ? interval(0) : interval(200))),
+        debounce(() => interval(200)),
         distinctUntilChanged(
           (value1: AgentsFilter, value2: AgentsFilter) =>
             value1.firstName === value2.firstName &&
@@ -59,5 +57,6 @@ export class BrokerAdminAgentsComponent implements OnInit {
 
   toggleFilter() {
     this.filterInUse = !this.filterInUse;
+    this.searchForm.reset();
   }
 }

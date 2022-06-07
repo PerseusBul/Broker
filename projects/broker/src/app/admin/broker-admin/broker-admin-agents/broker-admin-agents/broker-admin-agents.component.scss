@@ -48,16 +48,17 @@
 }
 
 .active-filter {
-  animation-duration: 0.15s;
+  animation-duration: 0.12s;
   animation-name: openFilter;
 }
 
 .filter-wrapper {
-  height: 120px;
+  height: 122px;
   width: 100%;
   border: 2px solid;
-  margin-bottom: 6px;
-  @apply border-axiom;
+  margin: 4px 18px 6px 0;
+  @apply border-gray-200 rounded;
+  padding: 3px;
 }
 
 .section-grid {
@@ -86,4 +87,13 @@
 
 .row-full {
   @apply col-span-full;
+}
+
+.filter-field {
+  margin-top: -12px !important;
+}
+
+.filter-divider {
+  height: 1px;
+  @apply bg-axiom mb-1.5 border-none;
 }

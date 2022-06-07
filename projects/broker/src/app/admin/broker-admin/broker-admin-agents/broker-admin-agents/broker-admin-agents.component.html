@@ -2,14 +2,14 @@
   <ng-container filter-button>
     <a class="text-axiom h-full" mat-raised-button (click)="toggleFilter()">
       <fa-icon [icon]="fadUserPlus" size="lg"></fa-icon>
-      <span>Филтер</span>
+      <span>Филтър</span>
     </a>
   </ng-container>
   <ng-container card-title>Агенти</ng-container>
   <ng-container card-buttons>
     <a [routerLink]="['./', 'new']" mat-raised-button color="primary" aria-label="Нов агент">
       <fa-icon [icon]="fadUserPlus" size="lg"></fa-icon>
-      <span>Нова агент</span>
+      <span>Нов агент</span>
     </a>
   </ng-container>
   <ng-container card-body>
@@ -22,9 +22,10 @@
 
           <br-text-field class="third-of-three-col" label="Фамилия" formControlName="lastName"></br-text-field>
 
-          <br-text-field class="row-full" label="Пълно Име" formControlName="fullName"></br-text-field>
+          <br-text-field class="row-full filter-field" label="Пълно Име" formControlName="fullName"></br-text-field>
         </div>
       </div>
+      <hr class="filter-divider" />
     </div>
     <br-table
       [dataSource]="dataSource"
