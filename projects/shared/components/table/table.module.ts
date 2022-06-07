@@ -9,12 +9,13 @@ import {
 } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 import { DEFAULT_PAGE_SIZE } from './table-datasource';
 import { TableComponent } from './table.component';
 
 @NgModule({
   declarations: [TableComponent],
-  imports: [CdkTableModule, CommonModule, MatPaginatorModule, MatProgressSpinnerModule, MatSortModule],
+  imports: [CdkTableModule, CommonModule, MatPaginatorModule, MatProgressSpinnerModule, MatSortModule, MatTableModule],
   exports: [TableComponent],
   providers: [
     {

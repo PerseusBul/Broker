@@ -1,9 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { faFilePrescription as fasFilePrescription } from '@fortawesome/free-solid-svg-icons/faFilePrescription';
 import { faUserPlus as fadUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
 import { TableDataSource } from 'projects/shared/components/table/table-datasource';
+import { interval, merge, of } from 'rxjs';
+import { debounce, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { BrokerAdminAgentsService, BrokersTableAll } from './broker-admin-agents.service';
+
+export interface AgentsFilter {
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  fullName: string;
+}
 
 @Component({
   selector: 'br-broker-admin-agents',
@@ -11,16 +21,35 @@ import { BrokerAdminAgentsService, BrokersTableAll } from './broker-admin-agents
   styleUrls: ['./broker-admin-agents.component.scss']
 })
 export class BrokerAdminAgentsComponent implements OnInit {
-  //, AfterViewInit
   fasFilePrescription = fasFilePrescription;
   fadUserPlus = fadUserPlus;
-  // dataSource = new MatTableDataSource<Sample>(AGENTS_DATA.map((a) => new Sample(a)));
   dataSource: TableDataSource<BrokersTableAll>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private brokerAdminAgentsService: BrokerAdminAgentsService) {
-    this.dataSource = new TableDataSource((sortBy, sortDirection, offset, limit) =>
-      brokerAdminAgentsService.getAll(sortBy, sortDirection, offset, limit || 15)
+  filterInUse: boolean = false;
+
+  searchForm = this.fb.group({
+    firstName: null,
+    middleName: null,
+    lastName: null,
+    fullName: null
+  });
+
+  constructor(brokerAdminAgentsService: BrokerAdminAgentsService, private fb: FormBuilder) {
+    this.dataSource = new TableDataSource<BrokersTableAll>((sortBy, sortDirection, offset, limit) =>
+      merge(of(this.searchForm.value), this.searchForm.valueChanges).pipe(
+        debounce(({ firstValue }) => (firstValue ? interval(0) : interval(200))),
+        distinctUntilChanged(
+          (value1: AgentsFilter, value2: AgentsFilter) =>
+            value1.firstName === value2.firstName &&
+            value1.middleName === value2.middleName &&
+            value1.lastName === value2.lastName &&
+            value1.fullName === value2.fullName
+        ),
+        switchMap((filters: { firstName?: string; middleName?: string; lastName?: string; fullName?: string }) =>
+          brokerAdminAgentsService.getAll({ sortBy, sortDirection, offset, limit, ...filters })
+        )
+      )
     );
   }
 
@@ -28,7 +57,7 @@ export class BrokerAdminAgentsComponent implements OnInit {
     return;
   }
 
-  // ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
-  // }
+  toggleFilter() {
+    this.filterInUse = !this.filterInUse;
+  }
 }

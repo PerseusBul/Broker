@@ -1,12 +1,31 @@
 <br-card>
+  <ng-container filter-button>
+    <a class="text-axiom h-full" mat-raised-button (click)="toggleFilter()">
+      <fa-icon [icon]="fadUserPlus" size="lg"></fa-icon>
+      <span>Филтер</span>
+    </a>
+  </ng-container>
   <ng-container card-title>Агенти</ng-container>
   <ng-container card-buttons>
-    <a [routerLink]="['./', 'new']" mat-raised-button color="primary" aria-label="Нова агент">
+    <a [routerLink]="['./', 'new']" mat-raised-button color="primary" aria-label="Нов агент">
       <fa-icon [icon]="fadUserPlus" size="lg"></fa-icon>
       <span>Нова агент</span>
     </a>
   </ng-container>
   <ng-container card-body>
+    <div [ngClass]="filterInUse ? 'active-filter' : 'no-filter'">
+      <div class="filter-wrapper" [formGroup]="searchForm" novalidate>
+        <div class="section-grid">
+          <br-text-field class="first-of-three-col" label="Име" formControlName="firstName"></br-text-field>
+
+          <br-text-field class="second-of-three-col" label="Презиме" formControlName="middleName"></br-text-field>
+
+          <br-text-field class="third-of-three-col" label="Фамилия" formControlName="lastName"></br-text-field>
+
+          <br-text-field class="row-full" label="Пълно Име" formControlName="fullName"></br-text-field>
+        </div>
+      </div>
+    </div>
     <br-table
       [dataSource]="dataSource"
       [displayedColumns]="['action', 'position', 'firstName', 'middleName', 'lastName', 'fullName']"

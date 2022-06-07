@@ -1,0 +1,89 @@
+@keyframes openFilter {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+
+  10% {
+    height: 10px;
+  }
+
+  20% {
+    height: 20px;
+  }
+
+  30% {
+    height: 30px;
+  }
+
+  40% {
+    height: 40px;
+  }
+
+  50% {
+    height: 50px;
+  }
+
+  60% {
+    height: 60px;
+  }
+
+  75% {
+    height: 75px;
+  }
+
+  90% {
+    height: 100px;
+  }
+
+  to {
+    opacity: 1;
+    height: auto;
+  }
+}
+
+.no-filter {
+  opacity: 0;
+  height: 0;
+}
+
+.active-filter {
+  animation-duration: 0.15s;
+  animation-name: openFilter;
+}
+
+.filter-wrapper {
+  height: 120px;
+  width: 100%;
+  border: 2px solid;
+  margin-bottom: 6px;
+  @apply border-axiom;
+}
+
+.section-grid {
+  @apply sm:grid grid-cols-9 gap-x-4 mb-2;
+}
+
+.file-section-grid {
+  @apply sm:grid grid-cols-9 gap-x-4 -mb-2;
+}
+
+.first-of-three-col {
+  @apply col-start-1 col-end-4;
+}
+
+.second-of-three-col {
+  @apply col-start-4 col-end-7;
+}
+
+.third-of-three-col {
+  @apply col-start-7 col-end-10;
+}
+
+.first-and-second-of-three-col {
+  @apply col-start-1 col-end-7;
+}
+
+.row-full {
+  @apply col-span-full;
+}
