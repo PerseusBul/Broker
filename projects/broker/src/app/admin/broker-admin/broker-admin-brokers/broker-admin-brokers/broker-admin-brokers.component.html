@@ -1,4 +1,14 @@
 <br-card>
+  <ng-container filter-button>
+    <div class="" [formGroup]="searchForm" novalidate>
+      <input
+        class="border-gray-300 border-solid rounded h-8 border-2 pl-2 text-lg"
+        matInput
+        formControlName="search"
+        [placeholder]="'Търсене...'"
+      />
+    </div>
+  </ng-container>
   <ng-container card-title>Брокери</ng-container>
   <ng-container card-buttons>
     <a [routerLink]="['./', 'new']" mat-raised-button color="primary" aria-label="Нов брокер">
@@ -7,56 +17,59 @@
     </a>
   </ng-container>
   <ng-container card-body>
-    <div class="br-table-container relative">
-      <table class="br-table" mat-table [dataSource]="dataSource">
-        <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let row" class="br-table-action">
-            <a [routerLink]="['./', row.id]" aria-label="Редактирай" class="br-link-btn">
-              <fa-icon [icon]="fasFilePrescription"></fa-icon>
-            </a>
-          </td>
-        </ng-container>
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef>No.</th>
-          <td mat-cell *matCellDef="let row">{{ row.position }}</td>
-        </ng-container>
+    <table class="br-table" mat-table matSort [dataSource]="dataSource">
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <td mat-cell *matCellDef="let row" class="br-table-action">
+          <a [routerLink]="['./', row.id]" aria-label="Редактирай" class="br-link-btn">
+            <fa-icon [icon]="fasFilePrescription"></fa-icon>
+          </a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
+        <td mat-cell *matCellDef="let row">{{ row.position }}</td>
+      </ng-container>
 
-        <ng-container matColumnDef="firstName">
-          <th mat-header-cell *matHeaderCellDef>Име</th>
-          <td mat-cell *matCellDef="let row">{{ row.firstName }}</td>
-        </ng-container>
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Име</th>
+        <td mat-cell *matCellDef="let row">{{ row.firstName }}</td>
+      </ng-container>
 
-        <ng-container matColumnDef="middleName">
-          <th mat-header-cell *matHeaderCellDef>Презиме</th>
-          <td mat-cell *matCellDef="let row">{{ row.middleName }}</td>
-        </ng-container>
+      <ng-container matColumnDef="middleName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Презиме</th>
+        <td mat-cell *matCellDef="let row">{{ row.middleName }}</td>
+      </ng-container>
 
-        <ng-container matColumnDef="lastName">
-          <th mat-header-cell *matHeaderCellDef>Фамилия</th>
-          <td mat-cell *matCellDef="let row">{{ row.lastName }}</td>
-        </ng-container>
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Фамилия</th>
+        <td mat-cell *matCellDef="let row">{{ row.lastName }}</td>
+      </ng-container>
 
-        <ng-container matColumnDef="fullName">
-          <th mat-header-cell *matHeaderCellDef>Пълно Име</th>
-          <td mat-cell *matCellDef="let row">{{ row.fullName }}</td>
-        </ng-container>
+      <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Пълно Име</th>
+        <td mat-cell *matCellDef="let row">{{ row.fullName }}</td>
+      </ng-container>
 
-        <tr
-          mat-header-row
-          *matHeaderRowDef="['action', 'position', 'firstName', 'middleName', 'lastName', 'fullName']"
-        ></tr>
-        <tr
-          mat-row
-          *matRowDef="let row; columns: ['action', 'position', 'firstName', 'middleName', 'lastName', 'fullName']"
-        ></tr>
-        <tr *matNoDataRow class="sb-no-data-row">
-          <!-- *ngIf="!(dataSource.pending$ | async)"  -->
-          <ng-content select="[no-data-row]"></ng-content>
-        </tr>
-      </table>
+      <tr
+        mat-header-row
+        *matHeaderRowDef="['action', 'position', 'firstName', 'middleName', 'lastName', 'fullName']"
+      ></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: ['action', 'position', 'firstName', 'middleName', 'lastName', 'fullName']"
+      ></tr>
+      <tr *matNoDataRow class="sb-no-data-row">
+        <ng-content select="[no-data-row]"></ng-content>
+      </tr>
+    </table>
 
-      <mat-paginator [pageSizeOptions]="[3]" aria-label="Select page of periodic rows"></mat-paginator>
-    </div>
+    <mat-paginator [pageSizeOptions]="[6, 12, 25, 50]" aria-label="Select page of periodic rows"></mat-paginator>
+
+    <mat-spinner
+      *ngIf="!dataSource.data"
+      [diameter]="120"
+      class="absolute top-1/3 left-1/2 -mt-10 -ml-10"
+    ></mat-spinner>
   </ng-container>
 </br-card>
