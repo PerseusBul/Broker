@@ -40,12 +40,13 @@ export class BrokerComponent implements OnInit {
             icon: fasHospitalUser,
             routeCommands: ['./broker'],
             visible: true
+          },
+          {
+            text: 'ППЧ',
+            icon: fasHospitalUser,
+            routeCommands: ['./broker'],
+            visible: true
           }
-          // {
-          //   text: '',
-          //   externalLink: superdocLink,
-          //   visible: true
-          // }
         ]
       }
     ];

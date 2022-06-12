@@ -7,7 +7,7 @@ export class Sample {
   }
 
   id: number = -1;
-  position?: number = -1;
+  position: number = -1;
   firstName: string = '';
   middleName: string = '';
   lastName: string = '';

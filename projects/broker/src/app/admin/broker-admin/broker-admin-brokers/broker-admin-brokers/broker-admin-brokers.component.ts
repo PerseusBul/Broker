@@ -16,7 +16,7 @@ import { AGENTS_DATA, Sample } from 'src/app/admin/stub-data-store';
 export class BrokerAdminBrokersComponent implements OnInit, AfterViewInit, OnDestroy {
   fasFilePrescription = fasFilePrescription;
   fadUserPlus = fadUserPlus;
-  dataSource = new MatTableDataSource<Sample>(AGENTS_DATA.map((a) => new Sample(a)));
+  dataSource: MatTableDataSource<Sample>;
   subscription: Subscription = new Subscription();
   filterInUse: boolean = false;
 
@@ -27,7 +27,9 @@ export class BrokerAdminBrokersComponent implements OnInit, AfterViewInit, OnDes
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+    this.dataSource = new MatTableDataSource<Sample>(AGENTS_DATA.map((a) => new Sample(a)));
+  }
 
   ngOnInit(): void {
     this.subscription.add(
