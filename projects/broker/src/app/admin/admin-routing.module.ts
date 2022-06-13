@@ -14,10 +14,10 @@ const routes: Routes = [
           import('./broker-admin/broker-admin-agents/broker-admin-agents.module').then((m) => m.BrokerAdminAgentsModule)
       },
       {
-        path: 'brokers',
+        path: 'regions',
         loadChildren: () =>
-          import('./broker-admin/broker-admin-brokers/broker-admin-brokers.module').then(
-            (m) => m.BrokerAdminBrokersModule
+          import('./broker-admin/broker-admin-regions/broker-admin-regions.module').then(
+            (m) => m.BrokerAdminRegionsModule
           )
       },
       {

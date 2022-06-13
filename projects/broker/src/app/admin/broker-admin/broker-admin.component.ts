@@ -14,14 +14,14 @@ export class BrokerAdminComponent implements OnInit {
   ngOnInit(): void {
     this.tabs = [
       {
+        text: 'Региони',
+        icon: fasFileMedical,
+        routeCommands: ['./regions']
+      },
+      {
         text: 'Офиси',
         icon: fasFileMedical,
         routeCommands: ['./offices']
-      },
-      {
-        text: 'Брокери',
-        icon: fasFileMedical,
-        routeCommands: ['./brokers']
       },
       {
         text: 'Посредници',

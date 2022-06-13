@@ -6,17 +6,17 @@ import { CommonFormUiModule } from 'projects/shared/common-form-ui.module';
 import { NomSelectModule } from 'projects/shared/components/nom-select/nom-select.module';
 import { ActionServiceModule } from 'projects/shared/services/action-service/action-service.module';
 import {
-  BrokerAdminBrokerViewComponent,
-  BrokerAdminBrokerViewSkeletonComponent
-} from './broker-admin-broker-view/broker-admin-broker-view.component';
-import { BrokerAdminBrokersRoutingModule } from './broker-admin-brokers-routing.module';
-import { BrokerAdminBrokersComponent } from './broker-admin-brokers/broker-admin-brokers.component';
+  BrokerAdminRegionViewComponent,
+  BrokerAdminRegionViewSkeletonComponent
+} from './broker-admin-region-view/broker-admin-region-view.component';
+import { BrokerAdminRegionsRoutingModule } from './broker-admin-regions-routing.module';
+import { BrokerAdminRegionsComponent } from './broker-admin-regions/broker-admin-regions.component';
 
 @NgModule({
-  declarations: [BrokerAdminBrokersComponent, BrokerAdminBrokerViewComponent, BrokerAdminBrokerViewSkeletonComponent],
+  declarations: [BrokerAdminRegionsComponent, BrokerAdminRegionViewComponent, BrokerAdminRegionViewSkeletonComponent],
   imports: [
     CommonModule,
-    BrokerAdminBrokersRoutingModule,
+    BrokerAdminRegionsRoutingModule,
     CommonFormUiModule,
     ActionServiceModule,
     NomSelectModule,
@@ -24,4 +24,4 @@ import { BrokerAdminBrokersComponent } from './broker-admin-brokers/broker-admin
     MatSortModule
   ]
 })
-export class BrokerAdminBrokersModule {}
+export class BrokerAdminRegionsModule {}

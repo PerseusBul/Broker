@@ -9,11 +9,11 @@ import { debounce, interval, Subscription, tap } from 'rxjs';
 import { AGENTS_DATA, Sample } from 'src/app/admin/stub-data-store';
 
 @Component({
-  selector: 'br-broker-admin-brokers',
-  templateUrl: './broker-admin-brokers.component.html',
-  styleUrls: ['./broker-admin-brokers.component.scss']
+  selector: 'br-broker-admin-regions',
+  templateUrl: './broker-admin-regions.component.html',
+  styleUrls: ['./broker-admin-regions.component.scss']
 })
-export class BrokerAdminBrokersComponent implements OnInit, AfterViewInit, OnDestroy {
+export class BrokerAdminRegionsComponent implements OnInit, AfterViewInit, OnDestroy {
   fasFilePrescription = fasFilePrescription;
   fadUserPlus = fadUserPlus;
   dataSource: MatTableDataSource<Sample>;
