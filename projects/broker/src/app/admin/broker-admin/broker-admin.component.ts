@@ -29,9 +29,9 @@ export class BrokerAdminComponent implements OnInit {
         routeCommands: ['./agents']
       },
       {
-        text: 'Данни на фирмата',
+        text: 'Потребители',
         icon: fasFileMedical,
-        routeCommands: ['./company-data']
+        routeCommands: ['./users']
       }
     ];
   }

@@ -1,11 +1,11 @@
 <form [formGroup]="form" novalidate>
   <br-card>
     <ng-container card-title>
-      {{ data.agent == null ? 'Създаване на посредник' : 'Редакция на посредник' }}
+      {{ data.user == null ? 'Създаване на потребител' : 'Редакция на потребител' }}
     </ng-container>
     <br-editor-panel
       card-buttons
-      [isNew]="data.agent == null"
+      [isNew]="data.user == null"
       [editBtnHidden]="false"
       [backBtnHidden]="false"
       (save)="onSave($event)"

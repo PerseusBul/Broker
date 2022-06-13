@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BrokerAdminCompanyDataComponent } from './broker-admin/broker-admin-company-data/broker-admin-company-data.component';
 import { BrokerAdminComponent } from './broker-admin/broker-admin.component';
 
 const routes: Routes = [
@@ -27,7 +26,11 @@ const routes: Routes = [
             (m) => m.BrokerAdminOfficesModule
           )
       },
-      { path: 'company-data', component: BrokerAdminCompanyDataComponent }
+      {
+        path: 'users',
+        loadChildren: () =>
+          import('./broker-admin/broker-admin-users/broker-admin-users.module').then((m) => m.BrokerAdminUsersModule)
+      }
     ]
   }
 ];
