@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { faFileMedical as fasFileMedical } from '@fortawesome/free-solid-svg-icons/faFileMedical';
 // import { faPenToSquare as fasPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
 import { faHandHoldingMedical as fasHandHoldingMedical } from '@fortawesome/free-solid-svg-icons/faHandHoldingMedical';
-import { faHospitalUser as fasHospitalUser } from '@fortawesome/free-solid-svg-icons/faHospitalUser';
+//import { faHospitalUser as fasHospitalUser } from '@fortawesome/free-solid-svg-icons/faHospitalUser';
 import { faNotesMedical as fasNotesMedical } from '@fortawesome/free-solid-svg-icons/faNotesMedical';
+import { faPersonHiking as fasPersonHiking } from '@fortawesome/free-solid-svg-icons/faPersonHiking';
+import { faPlaneDeparture as fasPlaneDeparture } from '@fortawesome/free-solid-svg-icons/faPlaneDeparture';
 import { MenuItem } from 'projects/shared/components/app-menu/menu-item';
 
 @Component({
@@ -37,13 +39,13 @@ export class BrokerComponent implements OnInit {
           },
           {
             text: 'Туристическа',
-            icon: fasHospitalUser,
+            icon: fasPersonHiking,
             routeCommands: ['./broker'],
             visible: true
           },
           {
             text: 'ППЧ',
-            icon: fasHospitalUser,
+            icon: fasPlaneDeparture,
             routeCommands: ['./broker'],
             visible: true
           }
