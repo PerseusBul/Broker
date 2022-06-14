@@ -4,6 +4,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { faFilePrescription as fasFilePrescription } from '@fortawesome/free-solid-svg-icons/faFilePrescription';
+import { faFilter as fasFilter } from '@fortawesome/free-solid-svg-icons/faFilter';
+import { faPen as fasPen } from '@fortawesome/free-solid-svg-icons/faPen';
+import { faSquarePlus as fasSquarePlus } from '@fortawesome/free-solid-svg-icons/faSquarePlus';
 import { faUserPlus as fadUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
 import { catchError, debounce, distinctUntilChanged, finalize, interval, merge, Subscription, tap } from 'rxjs';
 import { Sample } from 'src/app/admin/stub-data-store';
@@ -17,6 +20,10 @@ import { BrokerAdminOfficesService } from './broker-admin-offices.service';
 export class BrokerAdminOfficesComponent implements OnInit, AfterViewInit, OnDestroy {
   fasFilePrescription = fasFilePrescription;
   fadUserPlus = fadUserPlus;
+  fasFilter = fasFilter;
+  fasSquarePlus = fasSquarePlus;
+  fasPen = fasPen;
+
   dataSource = new MatTableDataSource<Sample>();
   samples: Sample[] = [];
   subs: Subscription = new Subscription();

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { faFileMedical as fasFileMedical } from '@fortawesome/free-solid-svg-icons/faFileMedical';
+import { faImagePortrait as fasImagePortrait } from '@fortawesome/free-solid-svg-icons/faImagePortrait';
+import { faLaptopFile as fasLaptopFile } from '@fortawesome/free-solid-svg-icons/faLaptopFile';
+import { faMapLocationDot as fasMapLocationDot } from '@fortawesome/free-solid-svg-icons/faMapLocationDot';
+import { faUserTie as fasUserTie } from '@fortawesome/free-solid-svg-icons/faUserTie';
 import { TabItem } from 'projects/shared/components/tabs/tab-item';
 
 @Component({
@@ -9,28 +12,27 @@ import { TabItem } from 'projects/shared/components/tabs/tab-item';
 })
 export class BrokerAdminComponent implements OnInit {
   tabs: TabItem[] = [];
-  fasFileMedical = fasFileMedical;
 
   ngOnInit(): void {
     this.tabs = [
       {
         text: 'Региони',
-        icon: fasFileMedical,
+        icon: fasMapLocationDot,
         routeCommands: ['./regions']
       },
       {
         text: 'Офиси',
-        icon: fasFileMedical,
+        icon: fasLaptopFile,
         routeCommands: ['./offices']
       },
       {
         text: 'Посредници',
-        icon: fasFileMedical,
+        icon: fasUserTie,
         routeCommands: ['./agents']
       },
       {
         text: 'Потребители',
-        icon: fasFileMedical,
+        icon: fasImagePortrait,
         routeCommands: ['./users']
       }
     ];

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { faFileMedical as fasFileMedical } from '@fortawesome/free-solid-svg-icons/faFileMedical';
-// import { faPenToSquare as fasPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
-import { faHandHoldingMedical as fasHandHoldingMedical } from '@fortawesome/free-solid-svg-icons/faHandHoldingMedical';
-//import { faHospitalUser as fasHospitalUser } from '@fortawesome/free-solid-svg-icons/faHospitalUser';
-import { faNotesMedical as fasNotesMedical } from '@fortawesome/free-solid-svg-icons/faNotesMedical';
+import { faHouseFire as fasHouseFire } from '@fortawesome/free-solid-svg-icons/faHouseFire';
 import { faPersonHiking as fasPersonHiking } from '@fortawesome/free-solid-svg-icons/faPersonHiking';
 import { faPlaneDeparture as fasPlaneDeparture } from '@fortawesome/free-solid-svg-icons/faPlaneDeparture';
+//import { faFileMedical as fasFileMedical } from '@fortawesome/free-solid-svg-icons/faFileMedical';
+import { faSatelliteDish as fasSatelliteDish } from '@fortawesome/free-solid-svg-icons/faSatelliteDish';
+// import { faPenToSquare as fasPenToSquare } from '@fortawesome/free-solid-svg-icons/faPenToSquare';
+import { faUsersGear as fasUsersGear } from '@fortawesome/free-solid-svg-icons/faUsersGear';
 import { MenuItem } from 'projects/shared/components/app-menu/menu-item';
 
 @Component({
@@ -20,20 +20,20 @@ export class BrokerComponent implements OnInit {
   ngOnInit(): void {
     this.menuItems = this.menuItems = [
       {
-        text: 'Недоклатено меню',
-        icon: fasHandHoldingMedical,
+        text: 'Информационен портал',
+        icon: fasSatelliteDish,
         isOpen: true,
         visible: true,
         menuItems: [
           {
-            text: 'Офис',
-            icon: fasFileMedical,
-            routeCommands: ['./broker'],
+            text: 'Посредници',
+            icon: fasUsersGear,
+            routeCommands: ['./admin'],
             visible: true
           },
           {
             text: 'Имущество',
-            icon: fasNotesMedical,
+            icon: fasHouseFire,
             routeCommands: ['./broker'],
             visible: true
           },

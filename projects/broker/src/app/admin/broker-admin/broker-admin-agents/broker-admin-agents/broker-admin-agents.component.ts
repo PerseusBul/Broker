@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { faFilePrescription as fasFilePrescription } from '@fortawesome/free-solid-svg-icons/faFilePrescription';
+import { faPen as fasPen } from '@fortawesome/free-solid-svg-icons/faPen';
 import { faUserPlus as fadUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
 import { TableDataSource } from 'projects/shared/components/table/table-datasource';
 import { interval, merge, of } from 'rxjs';
@@ -22,6 +23,7 @@ export interface AgentsFilter {
 export class BrokerAdminAgentsComponent implements OnInit {
   fasFilePrescription = fasFilePrescription;
   fadUserPlus = fadUserPlus;
+  fasPen = fasPen;
   dataSource: TableDataSource<BrokersTableAll>;
 
   filterInUse: boolean = false;

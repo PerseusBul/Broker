@@ -9,11 +9,11 @@
       />
     </div>
   </ng-container>
-  <ng-container card-title>Брокери</ng-container>
+  <ng-container card-title>Региони</ng-container>
   <ng-container card-buttons>
-    <a [routerLink]="['./', 'new']" mat-raised-button color="primary" aria-label="Нов брокер">
-      <fa-icon [icon]="fadUserPlus" size="lg"></fa-icon>
-      <span>Нов брокер</span>
+    <a [routerLink]="['./', 'new']" mat-raised-button color="primary" aria-label="Нов регион">
+      <fa-icon [icon]="fasSquarePlus" size="lg"></fa-icon>
+      <span>Нов регион</span>
     </a>
   </ng-container>
   <ng-container card-body>
@@ -22,7 +22,7 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
         <td mat-cell *matCellDef="let row" class="br-table-action">
           <a [routerLink]="['./', row.id]" aria-label="Редактирай" class="br-link-btn">
-            <fa-icon [icon]="fasFilePrescription"></fa-icon>
+            <fa-icon [icon]="fasPen"></fa-icon>
           </a>
         </td>
       </ng-container>

@@ -4,7 +4,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { faFilePrescription as fasFilePrescription } from '@fortawesome/free-solid-svg-icons/faFilePrescription';
-import { faUserPlus as fadUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
+import { faPen as fasPen } from '@fortawesome/free-solid-svg-icons/faPen';
+import { faSquarePlus as fasSquarePlus } from '@fortawesome/free-solid-svg-icons/faSquarePlus';
 import { debounce, interval, Subscription, tap } from 'rxjs';
 import { AGENTS_DATA, Sample } from 'src/app/admin/stub-data-store';
 
@@ -15,7 +16,9 @@ import { AGENTS_DATA, Sample } from 'src/app/admin/stub-data-store';
 })
 export class BrokerAdminRegionsComponent implements OnInit, AfterViewInit, OnDestroy {
   fasFilePrescription = fasFilePrescription;
-  fadUserPlus = fadUserPlus;
+  fasSquarePlus = fasSquarePlus;
+  fasPen = fasPen;
+  
   dataSource: MatTableDataSource<Sample>;
   subscription: Subscription = new Subscription();
   filterInUse: boolean = false;
