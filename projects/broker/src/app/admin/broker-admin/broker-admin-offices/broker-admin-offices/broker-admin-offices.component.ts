@@ -31,6 +31,7 @@ export class BrokerAdminOfficesComponent implements OnInit, AfterViewInit, OnDes
 
   loading: boolean = false;
   filterInUse: boolean = false;
+  switchRow: Sample | null = null;
 
   searchForm = this.fb.group({
     firstName: null,
@@ -121,6 +122,14 @@ export class BrokerAdminOfficesComponent implements OnInit, AfterViewInit, OnDes
         .pipe(tap(() => this.loadPage()))
         .subscribe()
     );
+  }
+
+  onToggleSample(row: Sample) {
+    if (row == this.switchRow) {
+      this.switchRow = null;
+    } else {
+      this.switchRow = row;
+    }
   }
 
   ngOnDestroy(): void {

@@ -1,7 +1,7 @@
 @keyframes openFilter {
   from {
     height: 0;
-    opacity: 0;
+    display: none;
   }
 
   10% {
@@ -37,13 +37,13 @@
   }
 
   to {
-    opacity: 1;
+    display: block;
     height: auto;
   }
 }
 
 .no-filter {
-  opacity: 0;
+  display: none;
   height: 0;
 }
 

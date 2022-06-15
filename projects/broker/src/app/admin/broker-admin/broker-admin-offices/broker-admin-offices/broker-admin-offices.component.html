@@ -27,7 +27,7 @@
       </div>
       <hr class="filter-divider" />
     </div>
-    <table class="br-table" mat-table matSort [dataSource]="dataSource">
+    <table class="br-table" mat-table matSort [dataSource]="dataSource" multiTemplateDataRows>
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let row" class="br-table-action">
@@ -61,16 +61,22 @@
         <td mat-cell *matCellDef="let row">{{ row.fullName }}</td>
       </ng-container>
 
+      <ng-container matColumnDef="fullName2">
+        <td mat-cell *matCellDef="let row" colspan="5">{{ row.fullName }}</td>
+      </ng-container>
+
       <tr
         mat-header-row
         *matHeaderRowDef="['action', 'position', 'firstName', 'middleName', 'lastName', 'fullName']"
+        mat-table-sticky="true"
       ></tr>
       <tr
         mat-row
+        (click)="onToggleSample(row)"
         *matRowDef="let row; columns: ['action', 'position', 'firstName', 'middleName', 'lastName', 'fullName']"
       ></tr>
+      <tr mat-row *matRowDef="let row; columns: ['fullName2']" [class.collapsed-row]="row !== switchRow"></tr>
       <tr *matNoDataRow class="sb-no-data-row">
-        <!-- *ngIf="!(dataSource.pending$ | async)"  -->
         <ng-content select="[no-data-row]"></ng-content>
       </tr>
     </table>
